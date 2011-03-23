@@ -9,10 +9,13 @@ module Ebay # :nodoc:
     #  money_node :gross_detail_amount, 'GrossDetailAmount', :optional => true
     #  text_node :item_id, 'ItemID', :optional => true
     #  text_node :memo, 'Memo', :optional => true
+    #  money_node :conversion_rate, 'ConversionRate', :optional => true
     #  money_node :net_detail_amount, 'NetDetailAmount', :optional => true
     #  text_node :ref_number, 'RefNumber', :optional => true
     #  numeric_node :vat_percent, 'VATPercent', :optional => true
     #  text_node :title, 'Title', :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
+    #  text_node :transaction_id, 'TransactionID', :optional => true
     class AccountEntry
       include XML::Mapping
       include Initializer
@@ -24,10 +27,13 @@ module Ebay # :nodoc:
       money_node :gross_detail_amount, 'GrossDetailAmount', :optional => true
       text_node :item_id, 'ItemID', :optional => true
       text_node :memo, 'Memo', :optional => true
+      money_node :conversion_rate, 'ConversionRate', :optional => true
       money_node :net_detail_amount, 'NetDetailAmount', :optional => true
       text_node :ref_number, 'RefNumber', :optional => true
       numeric_node :vat_percent, 'VATPercent', :optional => true
       text_node :title, 'Title', :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
+      text_node :transaction_id, 'TransactionID', :optional => true
     end
   end
 end

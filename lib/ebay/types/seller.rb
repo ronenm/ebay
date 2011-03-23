@@ -36,6 +36,8 @@ module Ebay # :nodoc:
     #  boolean_node :top_rated_seller, 'TopRatedSeller', 'true', 'false', :optional => true
     #  value_array_node :top_rated_seller_details, 'TopRatedSellerDetails', 'TopRatedProgram', :default_value => []
     #  value_array_node :recoupment_policy_consents, 'RecoupmentPolicyConsent', 'Site', :default_value => []
+    #  boolean_node :domestic_rate_table, 'DomesticRateTable', 'true', 'false', :optional => true
+    #  boolean_node :international_rate_table, 'InternationalRateTable', 'true', 'false', :optional => true
     class Seller
       include XML::Mapping
       include Initializer
@@ -69,6 +71,8 @@ module Ebay # :nodoc:
       boolean_node :top_rated_seller, 'TopRatedSeller', 'true', 'false', :optional => true
       value_array_node :top_rated_seller_details, 'TopRatedSellerDetails', 'TopRatedProgram', :default_value => []
       value_array_node :recoupment_policy_consents, 'RecoupmentPolicyConsent', 'Site', :default_value => []
+      boolean_node :domestic_rate_table, 'DomesticRateTable', 'true', 'false', :optional => true
+      boolean_node :international_rate_table, 'InternationalRateTable', 'true', 'false', :optional => true
     end
   end
 end

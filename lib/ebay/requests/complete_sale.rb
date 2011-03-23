@@ -12,6 +12,7 @@ module Ebay # :nodoc:
     #  text_node :listing_type, 'ListingType', :optional => true
     #  object_node :shipment, 'Shipment', :class => Shipment, :optional => true
     #  text_node :order_id, 'OrderID', :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     class CompleteSale < Abstract
       include XML::Mapping
       include Initializer
@@ -24,6 +25,7 @@ module Ebay # :nodoc:
       text_node :listing_type, 'ListingType', :optional => true
       object_node :shipment, 'Shipment', :class => Shipment, :optional => true
       text_node :order_id, 'OrderID', :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     end
   end
 end

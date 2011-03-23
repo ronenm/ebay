@@ -5,6 +5,7 @@ require 'ebay/types/my_ebay_favorite_search_list'
 require 'ebay/types/my_ebay_favorite_seller_list'
 require 'ebay/types/item'
 require 'ebay/types/bid_group'
+require 'ebay/types/user_defined_list'
 
 module Ebay # :nodoc:
   module Responses # :nodoc:
@@ -21,6 +22,7 @@ module Ebay # :nodoc:
     #  array_node :bid_assistant_lists, 'BidAssistantList', 'BidGroup', :class => BidGroup, :default_value => []
     #  object_node :deleted_from_won_list, 'DeletedFromWonList', :class => PaginatedOrderTransactionArray, :optional => true
     #  object_node :deleted_from_lost_list, 'DeletedFromLostList', :class => PaginatedItemArray, :optional => true
+    #  array_node :user_defined_lists, 'UserDefinedList', :class => UserDefinedList, :default_value => []
     class GetMyeBayBuying < Abstract
       include XML::Mapping
       include Initializer
@@ -37,6 +39,7 @@ module Ebay # :nodoc:
       array_node :bid_assistant_lists, 'BidAssistantList', 'BidGroup', :class => BidGroup, :default_value => []
       object_node :deleted_from_won_list, 'DeletedFromWonList', :class => PaginatedOrderTransactionArray, :optional => true
       object_node :deleted_from_lost_list, 'DeletedFromLostList', :class => PaginatedItemArray, :optional => true
+      array_node :user_defined_lists, 'UserDefinedList', :class => UserDefinedList, :default_value => []
     end
   end
 end

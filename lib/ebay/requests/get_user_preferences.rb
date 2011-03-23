@@ -13,6 +13,7 @@ module Ebay # :nodoc:
     #  boolean_node :show_seller_exclude_ship_to_location_preference, 'ShowSellerExcludeShipToLocationPreference', 'true', 'false', :optional => true
     #  boolean_node :show_unpaid_item_assistance_preference, 'ShowUnpaidItemAssistancePreference', 'true', 'false', :optional => true
     #  boolean_node :show_purchase_reminder_email_preferences, 'ShowPurchaseReminderEmailPreferences', 'true', 'false', :optional => true
+    #  boolean_node :show_unpaid_item_assistance_exclusion_list, 'ShowUnpaidItemAssistanceExclusionList', 'true', 'false', :optional => true
     class GetUserPreferences < Abstract
       include XML::Mapping
       include Initializer
@@ -28,6 +29,7 @@ module Ebay # :nodoc:
       boolean_node :show_seller_exclude_ship_to_location_preference, 'ShowSellerExcludeShipToLocationPreference', 'true', 'false', :optional => true
       boolean_node :show_unpaid_item_assistance_preference, 'ShowUnpaidItemAssistancePreference', 'true', 'false', :optional => true
       boolean_node :show_purchase_reminder_email_preferences, 'ShowPurchaseReminderEmailPreferences', 'true', 'false', :optional => true
+      boolean_node :show_unpaid_item_assistance_exclusion_list, 'ShowUnpaidItemAssistanceExclusionList', 'true', 'false', :optional => true
     end
   end
 end

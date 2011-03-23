@@ -17,6 +17,8 @@ module Ebay # :nodoc:
     #  object_node :deleted_from_won_list, 'DeletedFromWonList', :class => ItemListCustomization, :optional => true
     #  object_node :deleted_from_lost_list, 'DeletedFromLostList', :class => ItemListCustomization, :optional => true
     #  object_node :buying_summary, 'BuyingSummary', :class => ItemListCustomization, :optional => true
+    #  object_node :user_defined_lists, 'UserDefinedLists', :class => MyeBaySelection, :optional => true
+    #  boolean_node :hide_variations, 'HideVariations', 'true', 'false', :optional => true
     class GetMyeBayBuying < Abstract
       include XML::Mapping
       include Initializer
@@ -33,6 +35,8 @@ module Ebay # :nodoc:
       object_node :deleted_from_won_list, 'DeletedFromWonList', :class => ItemListCustomization, :optional => true
       object_node :deleted_from_lost_list, 'DeletedFromLostList', :class => ItemListCustomization, :optional => true
       object_node :buying_summary, 'BuyingSummary', :class => ItemListCustomization, :optional => true
+      object_node :user_defined_lists, 'UserDefinedLists', :class => MyeBaySelection, :optional => true
+      boolean_node :hide_variations, 'HideVariations', 'true', 'false', :optional => true
     end
   end
 end

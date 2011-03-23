@@ -5,6 +5,8 @@ module Ebay # :nodoc:
       extend Enumeration
       OnDemand = 'OnDemand'
       DailyPickup = 'DailyPickup'
+      StandardList = 'StandardList'
+      Counter = 'Counter'
     end
   end
 end

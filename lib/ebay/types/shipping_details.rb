@@ -8,6 +8,7 @@ require 'ebay/types/flat_shipping_discount'
 require 'ebay/types/calculated_shipping_discount'
 require 'ebay/types/promotional_shipping_discount_details'
 require 'ebay/types/shipment_tracking_details'
+require 'ebay/types/rate_table_details'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
@@ -48,6 +49,7 @@ module Ebay # :nodoc:
     #  text_node :exclude_ship_to_location, 'ExcludeShipToLocation', :optional => true
     #  boolean_node :seller_exclude_ship_to_locations_preference, 'SellerExcludeShipToLocationsPreference', 'true', 'false', :optional => true
     #  array_node :shipment_tracking_details, 'ShipmentTrackingDetails', :class => ShipmentTrackingDetails, :default_value => []
+    #  object_node :rate_table_details, 'RateTableDetails', :class => RateTableDetails, :optional => true
     class ShippingDetails
       include XML::Mapping
       include Initializer
@@ -88,6 +90,7 @@ module Ebay # :nodoc:
       text_node :exclude_ship_to_location, 'ExcludeShipToLocation', :optional => true
       boolean_node :seller_exclude_ship_to_locations_preference, 'SellerExcludeShipToLocationsPreference', 'true', 'false', :optional => true
       array_node :shipment_tracking_details, 'ShipmentTrackingDetails', :class => ShipmentTrackingDetails, :default_value => []
+      object_node :rate_table_details, 'RateTableDetails', :class => RateTableDetails, :optional => true
     end
   end
 end

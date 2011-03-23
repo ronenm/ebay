@@ -25,6 +25,7 @@ module Ebay # :nodoc:
     #  array_node :dispute_messages, 'DisputeMessage', :class => DisputeMessage, :default_value => []
     #  boolean_node :escalation, 'Escalation', 'true', 'false', :optional => true
     #  boolean_node :purchase_protection, 'PurchaseProtection', 'true', 'false', :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     class Dispute
       include XML::Mapping
       include Initializer
@@ -49,6 +50,7 @@ module Ebay # :nodoc:
       array_node :dispute_messages, 'DisputeMessage', :class => DisputeMessage, :default_value => []
       boolean_node :escalation, 'Escalation', 'true', 'false', :optional => true
       boolean_node :purchase_protection, 'PurchaseProtection', 'true', 'false', :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     end
   end
 end

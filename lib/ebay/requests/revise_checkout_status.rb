@@ -25,6 +25,7 @@ module Ebay # :nodoc:
     #  object_node :external_transaction, 'ExternalTransaction', :class => ExternalTransaction, :optional => true
     #  text_node :multiple_seller_payment_id, 'MultipleSellerPaymentID', :optional => true
     #  money_node :cod_cost, 'CODCost', :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     class ReviseCheckoutStatus < Abstract
       include XML::Mapping
       include Initializer
@@ -50,6 +51,7 @@ module Ebay # :nodoc:
       object_node :external_transaction, 'ExternalTransaction', :class => ExternalTransaction, :optional => true
       text_node :multiple_seller_payment_id, 'MultipleSellerPaymentID', :optional => true
       money_node :cod_cost, 'CODCost', :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     end
   end
 end

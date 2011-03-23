@@ -16,6 +16,7 @@ module Ebay # :nodoc:
     #  money_node :commission, 'Commission', :optional => true
     #  money_node :amount_paid, 'AmountPaid', :optional => true
     #  time_node :paid_time, 'PaidTime', :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     class SellerPayment
       include XML::Mapping
       include Initializer
@@ -33,6 +34,7 @@ module Ebay # :nodoc:
       money_node :commission, 'Commission', :optional => true
       money_node :amount_paid, 'AmountPaid', :optional => true
       time_node :paid_time, 'PaidTime', :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     end
   end
 end

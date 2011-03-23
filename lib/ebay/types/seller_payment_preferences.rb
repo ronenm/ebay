@@ -10,6 +10,8 @@ module Ebay # :nodoc:
     #  boolean_node :paypal_always_on, 'PayPalAlwaysOn', 'true', 'false', :optional => true
     #  object_node :seller_payment_address, 'SellerPaymentAddress', :class => Address, :optional => true
     #  text_node :ups_rate_option, 'UPSRateOption', :optional => true
+    #  text_node :fed_ex_rate_option, 'FedExRateOption', :optional => true
+    #  text_node :usps_rate_option, 'USPSRateOption', :optional => true
     class SellerPaymentPreferences
       include XML::Mapping
       include Initializer
@@ -21,6 +23,8 @@ module Ebay # :nodoc:
       boolean_node :paypal_always_on, 'PayPalAlwaysOn', 'true', 'false', :optional => true
       object_node :seller_payment_address, 'SellerPaymentAddress', :class => Address, :optional => true
       text_node :ups_rate_option, 'UPSRateOption', :optional => true
+      text_node :fed_ex_rate_option, 'FedExRateOption', :optional => true
+      text_node :usps_rate_option, 'USPSRateOption', :optional => true
     end
   end
 end

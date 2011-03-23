@@ -29,6 +29,9 @@ module Ebay # :nodoc:
     #  time_node :paid_time, 'PaidTime', :optional => true
     #  time_node :shipped_time, 'ShippedTime', :optional => true
     #  boolean_node :integrated_merchant_credit_card_enabled, 'IntegratedMerchantCreditCardEnabled', 'true', 'false', :optional => true
+    #  boolean_node :bundle_purchase, 'BundlePurchase', 'true', 'false', :optional => true
+    #  text_node :buyer_checkout_message, 'BuyerCheckoutMessage', :optional => true
+    #  text_node :eias_token, 'EIASToken', :optional => true
     class Order
       include XML::Mapping
       include Initializer
@@ -54,6 +57,9 @@ module Ebay # :nodoc:
       time_node :paid_time, 'PaidTime', :optional => true
       time_node :shipped_time, 'ShippedTime', :optional => true
       boolean_node :integrated_merchant_credit_card_enabled, 'IntegratedMerchantCreditCardEnabled', 'true', 'false', :optional => true
+      boolean_node :bundle_purchase, 'BundlePurchase', 'true', 'false', :optional => true
+      text_node :buyer_checkout_message, 'BuyerCheckoutMessage', :optional => true
+      text_node :eias_token, 'EIASToken', :optional => true
     end
   end
 end

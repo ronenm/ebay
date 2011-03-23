@@ -39,7 +39,6 @@ module Ebay # :nodoc:
     #  array_node :attribute_sets, 'AttributeSetArray', 'AttributeSet', :class => AttributeSet, :default_value => []
     #  array_node :attributes, 'AttributeArray', 'Attribute', :class => Attribute, :default_value => []
     #  array_node :lookup_attributes, 'LookupAttributeArray', 'LookupAttribute', :class => LookupAttribute, :default_value => []
-    #  boolean_node :apply_shipping_discount, 'ApplyShippingDiscount', 'true', 'false', :optional => true
     #  boolean_node :auto_pay, 'AutoPay', 'true', 'false', :optional => true
     #  object_node :payment_details, 'PaymentDetails', :class => PaymentDetails, :optional => true
     #  object_node :bidding_details, 'BiddingDetails', :class => BiddingDetails, :optional => true
@@ -164,7 +163,6 @@ module Ebay # :nodoc:
       array_node :attribute_sets, 'AttributeSetArray', 'AttributeSet', :class => AttributeSet, :default_value => []
       array_node :attributes, 'AttributeArray', 'Attribute', :class => Attribute, :default_value => []
       array_node :lookup_attributes, 'LookupAttributeArray', 'LookupAttribute', :class => LookupAttribute, :default_value => []
-      boolean_node :apply_shipping_discount, 'ApplyShippingDiscount', 'true', 'false', :optional => true
       boolean_node :auto_pay, 'AutoPay', 'true', 'false', :optional => true
       object_node :payment_details, 'PaymentDetails', :class => PaymentDetails, :optional => true
       object_node :bidding_details, 'BiddingDetails', :class => BiddingDetails, :optional => true

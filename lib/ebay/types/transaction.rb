@@ -57,6 +57,10 @@ module Ebay # :nodoc:
     #  object_node :variation, 'Variation', :class => Variation, :optional => true
     #  text_node :buyer_checkout_message, 'BuyerCheckoutMessage', :optional => true
     #  object_node :taxes, 'Taxes', :class => Taxes, :optional => true
+    #  boolean_node :bundle_purchase, 'BundlePurchase', 'true', 'false', :optional => true
+    #  money_node :actual_shipping_cost, 'ActualShippingCost', :optional => true
+    #  money_node :actual_handling_cost, 'ActualHandlingCost', :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     class Transaction
       include XML::Mapping
       include Initializer
@@ -103,6 +107,10 @@ module Ebay # :nodoc:
       object_node :variation, 'Variation', :class => Variation, :optional => true
       text_node :buyer_checkout_message, 'BuyerCheckoutMessage', :optional => true
       object_node :taxes, 'Taxes', :class => Taxes, :optional => true
+      boolean_node :bundle_purchase, 'BundlePurchase', 'true', 'false', :optional => true
+      money_node :actual_shipping_cost, 'ActualShippingCost', :optional => true
+      money_node :actual_handling_cost, 'ActualHandlingCost', :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     end
   end
 end

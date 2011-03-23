@@ -20,6 +20,7 @@ module Ebay # :nodoc:
     #  boolean_node :follow_up_replaced, 'FollowUpReplaced', 'true', 'false', :optional => true
     #  boolean_node :countable, 'Countable', 'true', 'false', :optional => true
     #  boolean_node :feedback_revised, 'FeedbackRevised', 'true', 'false', :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     class FeedbackDetail
       include XML::Mapping
       include Initializer
@@ -42,6 +43,7 @@ module Ebay # :nodoc:
       boolean_node :follow_up_replaced, 'FollowUpReplaced', 'true', 'false', :optional => true
       boolean_node :countable, 'Countable', 'true', 'false', :optional => true
       boolean_node :feedback_revised, 'FeedbackRevised', 'true', 'false', :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     end
   end
 end

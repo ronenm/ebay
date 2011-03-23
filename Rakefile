@@ -5,8 +5,6 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 require 'rake/gempackagetask'
 require 'rake/contrib/rubyforgepublisher'
-gem 'activesupport'
-gem 'libxml-ruby'
 require 'xml'
 
 PKG_VERSION = "0.12.0"
@@ -85,6 +83,7 @@ namespace :classes do
   
   desc "Generate Ruby classes from the schema file and updates the schema version"
   task :generate => [:cleanup, 'schema:update_version'] do
+    require 'bundler/setup'
     require 'ebay'
     require 'ebay/schema/mapper'
     %w(requests responses types).each do |dir|

@@ -23,6 +23,7 @@ module Ebay # :nodoc:
     #  object_node :unpaid_item_assistance_preferences, 'UnpaidItemAssistancePreferences', :class => UnpaidItemAssistancePreferences, :optional => true
     #  array_node :seller_exclude_ship_to_location_preferences, 'SellerExcludeShipToLocationPreferences', :class => SellerExcludeShipToLocationPreferences, :default_value => []
     #  object_node :purchase_reminder_email_preferences, 'PurchaseReminderEmailPreferences', :class => PurchaseReminderEmailPreferences, :optional => true
+    #  boolean_node :seller_third_party_checkout_disabled, 'SellerThirdPartyCheckoutDisabled', 'true', 'false', :optional => true
     class GetUserPreferences < Abstract
       include XML::Mapping
       include Initializer
@@ -38,6 +39,7 @@ module Ebay # :nodoc:
       object_node :unpaid_item_assistance_preferences, 'UnpaidItemAssistancePreferences', :class => UnpaidItemAssistancePreferences, :optional => true
       array_node :seller_exclude_ship_to_location_preferences, 'SellerExcludeShipToLocationPreferences', :class => SellerExcludeShipToLocationPreferences, :default_value => []
       object_node :purchase_reminder_email_preferences, 'PurchaseReminderEmailPreferences', :class => PurchaseReminderEmailPreferences, :optional => true
+      boolean_node :seller_third_party_checkout_disabled, 'SellerThirdPartyCheckoutDisabled', 'true', 'false', :optional => true
     end
   end
 end

@@ -9,6 +9,7 @@ module Ebay # :nodoc:
     #  text_node :transaction_id, 'TransactionID', :optional => true
     #  array_node :variation_specifics, 'VariationSpecifics', 'NameValueList', :class => NameValueList, :default_value => []
     #  text_node :sku, 'SKU', :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     class SetUserNotes < Abstract
       include XML::Mapping
       include Initializer
@@ -19,6 +20,7 @@ module Ebay # :nodoc:
       text_node :transaction_id, 'TransactionID', :optional => true
       array_node :variation_specifics, 'VariationSpecifics', 'NameValueList', :class => NameValueList, :default_value => []
       text_node :sku, 'SKU', :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     end
   end
 end

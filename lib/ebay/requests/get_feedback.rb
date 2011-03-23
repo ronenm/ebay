@@ -10,6 +10,7 @@ module Ebay # :nodoc:
     #  value_array_node :comment_types, 'CommentType', :default_value => []
     #  text_node :feedback_type, 'FeedbackType', :optional => true
     #  object_node :pagination, 'Pagination', :class => Pagination, :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     class GetFeedback < Abstract
       include XML::Mapping
       include Initializer
@@ -21,6 +22,7 @@ module Ebay # :nodoc:
       value_array_node :comment_types, 'CommentType', :default_value => []
       text_node :feedback_type, 'FeedbackType', :optional => true
       object_node :pagination, 'Pagination', :class => Pagination, :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     end
   end
 end

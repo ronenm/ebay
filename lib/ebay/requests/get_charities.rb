@@ -10,6 +10,7 @@ module Ebay # :nodoc:
     #  boolean_node :include_description, 'IncludeDescription', 'true', 'false', :optional => true
     #  text_node :match_type, 'MatchType', :optional => true
     #  boolean_node :featured, 'Featured', 'true', 'false', :optional => true
+    #  numeric_node :campaign_id, 'CampaignID', :optional => true
     class GetCharities < Abstract
       include XML::Mapping
       include Initializer
@@ -22,6 +23,7 @@ module Ebay # :nodoc:
       boolean_node :include_description, 'IncludeDescription', 'true', 'false', :optional => true
       text_node :match_type, 'MatchType', :optional => true
       boolean_node :featured, 'Featured', 'true', 'false', :optional => true
+      numeric_node :campaign_id, 'CampaignID', :optional => true
     end
   end
 end

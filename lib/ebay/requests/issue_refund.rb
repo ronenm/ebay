@@ -8,6 +8,7 @@ module Ebay # :nodoc:
     #  text_node :refund_type, 'RefundType', :optional => true
     #  money_node :refund_amount, 'RefundAmount', :optional => true
     #  text_node :refund_message, 'RefundMessage', :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     class IssueRefund < Abstract
       include XML::Mapping
       include Initializer
@@ -18,6 +19,7 @@ module Ebay # :nodoc:
       text_node :refund_type, 'RefundType', :optional => true
       money_node :refund_amount, 'RefundAmount', :optional => true
       text_node :refund_message, 'RefundMessage', :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     end
   end
 end

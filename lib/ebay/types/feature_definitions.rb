@@ -107,6 +107,7 @@ require 'ebay/types/max_item_compatibility_definition'
 require 'ebay/types/min_item_compatibility_definition'
 require 'ebay/types/condition_enabled_definition'
 require 'ebay/types/condition_values_definition'
+require 'ebay/types/value_category_definition'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
@@ -220,6 +221,7 @@ module Ebay # :nodoc:
     #  object_node :min_item_compatibility, 'MinItemCompatibility', :class => MinItemCompatibilityDefinition, :optional => true
     #  object_node :condition_enabled, 'ConditionEnabled', :class => ConditionEnabledDefinition, :optional => true
     #  object_node :condition_values, 'ConditionValues', :class => ConditionValuesDefinition, :optional => true
+    #  object_node :value_category, 'ValueCategory', :class => ValueCategoryDefinition, :optional => true
     class FeatureDefinitions
       include XML::Mapping
       include Initializer
@@ -333,6 +335,7 @@ module Ebay # :nodoc:
       object_node :min_item_compatibility, 'MinItemCompatibility', :class => MinItemCompatibilityDefinition, :optional => true
       object_node :condition_enabled, 'ConditionEnabled', :class => ConditionEnabledDefinition, :optional => true
       object_node :condition_values, 'ConditionValues', :class => ConditionValuesDefinition, :optional => true
+      object_node :value_category, 'ValueCategory', :class => ValueCategoryDefinition, :optional => true
     end
   end
 end

@@ -5,6 +5,7 @@ module Ebay # :nodoc:
     #  text_node :item_id, 'ItemID', :optional => true
     #  text_node :ending_reason, 'EndingReason', :optional => true
     #  text_node :message_id, 'MessageID', :optional => true
+    #  text_node :seller_inventory_id, 'SellerInventoryID', :optional => true
     class EndItemRequestContainer
       include XML::Mapping
       include Initializer
@@ -12,6 +13,7 @@ module Ebay # :nodoc:
       text_node :item_id, 'ItemID', :optional => true
       text_node :ending_reason, 'EndingReason', :optional => true
       text_node :message_id, 'MessageID', :optional => true
+      text_node :seller_inventory_id, 'SellerInventoryID', :optional => true
     end
   end
 end

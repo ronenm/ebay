@@ -8,6 +8,7 @@ module Ebay # :nodoc:
     #  text_node :target_user_id, 'TargetUserID', :optional => true
     #  text_node :response_type, 'ResponseType', :optional => true
     #  text_node :response_text, 'ResponseText', :optional => true
+    #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     class RespondToFeedback < Abstract
       include XML::Mapping
       include Initializer
@@ -18,6 +19,7 @@ module Ebay # :nodoc:
       text_node :target_user_id, 'TargetUserID', :optional => true
       text_node :response_type, 'ResponseType', :optional => true
       text_node :response_text, 'ResponseText', :optional => true
+      text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     end
   end
 end

@@ -10,6 +10,7 @@ module Ebay # :nodoc:
     #  object_node :pagination, 'Pagination', :class => Pagination, :optional => true
     #  boolean_node :exclude_balance, 'ExcludeBalance', 'true', 'false', :optional => true
     #  boolean_node :exclude_summary, 'ExcludeSummary', 'true', 'false', :optional => true
+    #  boolean_node :include_conversion_rate, 'IncludeConversionRate', 'true', 'false', :optional => true
     #  text_node :account_entry_sort_type, 'AccountEntrySortType', :optional => true
     #  text_node :currency, 'Currency', :optional => true
     #  text_node :item_id, 'ItemID', :optional => true
@@ -24,6 +25,7 @@ module Ebay # :nodoc:
       object_node :pagination, 'Pagination', :class => Pagination, :optional => true
       boolean_node :exclude_balance, 'ExcludeBalance', 'true', 'false', :optional => true
       boolean_node :exclude_summary, 'ExcludeSummary', 'true', 'false', :optional => true
+      boolean_node :include_conversion_rate, 'IncludeConversionRate', 'true', 'false', :optional => true
       text_node :account_entry_sort_type, 'AccountEntrySortType', :optional => true
       text_node :currency, 'Currency', :optional => true
       text_node :item_id, 'ItemID', :optional => true

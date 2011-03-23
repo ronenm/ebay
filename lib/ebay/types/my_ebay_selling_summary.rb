@@ -13,6 +13,8 @@ module Ebay # :nodoc:
     #  numeric_node :total_lead_count, 'TotalLeadCount', :optional => true
     #  numeric_node :classified_ad_offer_count, 'ClassifiedAdOfferCount', :optional => true
     #  numeric_node :total_listings_with_leads, 'TotalListingsWithLeads', :optional => true
+    #  numeric_node :quantity_limit_remaining, 'QuantityLimitRemaining', :optional => true
+    #  money_node :amount_limit_remaining, 'AmountLimitRemaining', :optional => true
     class MyeBaySellingSummary
       include XML::Mapping
       include Initializer
@@ -28,6 +30,8 @@ module Ebay # :nodoc:
       numeric_node :total_lead_count, 'TotalLeadCount', :optional => true
       numeric_node :classified_ad_offer_count, 'ClassifiedAdOfferCount', :optional => true
       numeric_node :total_listings_with_leads, 'TotalListingsWithLeads', :optional => true
+      numeric_node :quantity_limit_remaining, 'QuantityLimitRemaining', :optional => true
+      money_node :amount_limit_remaining, 'AmountLimitRemaining', :optional => true
     end
   end
 end
