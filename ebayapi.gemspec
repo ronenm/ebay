@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "ebay/version"
 
 Gem::Specification.new do |s|
-  s.name        = "ebayapi"
+  s.name        = Ebay::PKG_NAME
   s.version     = Ebay::VERSION
   s.author      = "Cody Fausner"
   s.email       = "codyfauser@gmail.com"

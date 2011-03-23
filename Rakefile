@@ -7,14 +7,6 @@ require 'rake/gempackagetask'
 require 'rake/contrib/rubyforgepublisher'
 require 'xml'
 
-PKG_VERSION = "0.12.0"
-PKG_NAME = "ebayapi"
-PKG_FILE_NAME = "#{PKG_NAME}-#{PKG_VERSION}"
-
-PKG_FILES = FileList[
-  "lib/**/*", "test/**/*", "examples/**/*", "[A-Z]*", "Rakefile", "init.rb"
-].exclude(/~$|\.svn/)
-
 response_dir = File.join(File.dirname(__FILE__), 'test', 'fixtures', 'responses')
 
 desc "Default: Run all the unit tests"
@@ -106,26 +98,6 @@ Rake::RDocTask.new { |rdoc|
   rdoc.rdoc_files.exclude('lib/support')
 }
 
-spec = Gem::Specification.new do |s|
-  s.name = PKG_NAME
-  s.version = PKG_VERSION
-  s.summary = "Ruby client for the eBay unified schema XML API"
-  s.has_rdoc = true
-  s.files = PKG_FILES
-  s.require_path = 'lib'
-  s.author = "Cody Fauser"
-  s.email = "codyfauser@gmail.com"
-  s.homepage = "http://ebayapi.rubyforge.org"
-  s.add_dependency('xml-mapping', '>= 0.8.1')
-  s.add_dependency('money', '= 1.7.1')
-end
-
-Rake::GemPackageTask.new(spec) do |p|
-  p.gem_spec = spec
-  p.need_tar = true
-  p.need_zip = true
-end
-
 desc "Release the gems and docs to RubyForge"
 task :release => [ :publish, :upload ]
 
@@ -133,11 +105,11 @@ desc "Publish the release files to RubyForge."
 task :publish => [ :package ] do
   require 'rubyforge'
   
-  packages = %w( gem tgz zip ).collect{ |ext| "pkg/#{PKG_NAME}-#{PKG_VERSION}.#{ext}" }
+  packages = %w( gem tgz zip ).collect{ |ext| "pkg/#{Ebay::PKG_NAME}-#{Ebay::VERSION}.#{ext}" }
   
   rubyforge = RubyForge.new
   rubyforge.login
-  rubyforge.add_release(PKG_NAME, PKG_NAME, "REL #{PKG_VERSION}", *packages)
+  rubyforge.add_release(Ebay::PKG_NAME, Ebay::PKG_NAME, "REL #{Ebay::VERSION}", *packages)
 end
 
 desc 'Upload RDoc to RubyForge'
