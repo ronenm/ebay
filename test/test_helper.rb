@@ -2,11 +2,13 @@ $:.unshift File.dirname(__FILE__)
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib", "schema")
 
+require 'rubygems'
+require 'bundler/setup'
 require 'test/unit'
 require 'ebay'
 require 'http_mock'
 require 'credentials'
-require 'activesupport'
+require 'active_support'
 
 
 class Test::Unit::TestCase #:nodoc:
