@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency("xml-mapping", ["~> 0.8.1"])
   s.add_dependency("money", ["~> 1.7.1"])
   
+  s.add_development_dependency("rake", ["~> 0.8.7"])
   s.add_development_dependency("activesupport", ["~> 2.3"])
   s.add_development_dependency("libxml-ruby", ["~> 1.1.4"])
 end
