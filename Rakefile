@@ -5,6 +5,7 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 require 'rake/gempackagetask'
 require 'rake/contrib/rubyforgepublisher'
+require 'bundler/setup'
 require 'xml'
 
 response_dir = File.join(File.dirname(__FILE__), 'test', 'fixtures', 'responses')
@@ -75,7 +76,6 @@ namespace :classes do
   
   desc "Generate Ruby classes from the schema file and updates the schema version"
   task :generate => [:cleanup, 'schema:update_version'] do
-    require 'bundler/setup'
     require 'ebay'
     require 'ebay/schema/mapper'
     %w(requests responses types).each do |dir|
