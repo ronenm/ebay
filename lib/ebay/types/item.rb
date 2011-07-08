@@ -30,7 +30,8 @@ require 'ebay/types/business_seller_details'
 require 'ebay/types/buyer_requirement_details'
 require 'ebay/types/return_policy'
 require 'ebay/types/variations'
-require 'ebay/types/item_compatibility'
+require 'ebay/types/item_compatibility_list'
+require 'ebay/types/discount_price_info'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
@@ -148,13 +149,15 @@ module Ebay # :nodoc:
     #  text_node :inventory_tracking_method, 'InventoryTrackingMethod', :optional => true
     #  boolean_node :integrated_merchant_credit_card_enabled, 'IntegratedMerchantCreditCardEnabled', 'true', 'false', :optional => true
     #  object_node :variations, 'Variations', :class => Variations, :optional => true
-    #  array_node :item_compatibility_lists, 'ItemCompatibilityList', 'Compatibility', :class => ItemCompatibility, :default_value => []
+    #  object_node :item_compatibility_list, 'ItemCompatibilityList', :class => ItemCompatibilityList, :optional => true
     #  numeric_node :item_compatibility_count, 'ItemCompatibilityCount', :optional => true
     #  numeric_node :condition_id, 'ConditionID', :optional => true
     #  text_node :condition_display_name, 'ConditionDisplayName', :optional => true
     #  text_node :tax_category, 'TaxCategory', :optional => true
     #  text_node :quantity_available_hint, 'QuantityAvailableHint', :optional => true
     #  numeric_node :quantity_threshold, 'QuantityThreshold', :optional => true
+    #  boolean_node :post_checkout_experience_enabled, 'PostCheckoutExperienceEnabled', 'true', 'false', :optional => true
+    #  object_node :discount_price_info, 'DiscountPriceInfo', :class => DiscountPriceInfo, :optional => true
     class Item
       include XML::Mapping
       include Initializer
@@ -272,13 +275,15 @@ module Ebay # :nodoc:
       text_node :inventory_tracking_method, 'InventoryTrackingMethod', :optional => true
       boolean_node :integrated_merchant_credit_card_enabled, 'IntegratedMerchantCreditCardEnabled', 'true', 'false', :optional => true
       object_node :variations, 'Variations', :class => Variations, :optional => true
-      array_node :item_compatibility_lists, 'ItemCompatibilityList', 'Compatibility', :class => ItemCompatibility, :default_value => []
+      object_node :item_compatibility_list, 'ItemCompatibilityList', :class => ItemCompatibilityList, :optional => true
       numeric_node :item_compatibility_count, 'ItemCompatibilityCount', :optional => true
       numeric_node :condition_id, 'ConditionID', :optional => true
       text_node :condition_display_name, 'ConditionDisplayName', :optional => true
       text_node :tax_category, 'TaxCategory', :optional => true
       text_node :quantity_available_hint, 'QuantityAvailableHint', :optional => true
       numeric_node :quantity_threshold, 'QuantityThreshold', :optional => true
+      boolean_node :post_checkout_experience_enabled, 'PostCheckoutExperienceEnabled', 'true', 'false', :optional => true
+      object_node :discount_price_info, 'DiscountPriceInfo', :class => DiscountPriceInfo, :optional => true
     end
   end
 end

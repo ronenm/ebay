@@ -108,6 +108,7 @@ module Ebay # :nodoc:
       ConditionEnabled = 'ConditionEnabled'
       ConditionValues = 'ConditionValues'
       ValueCategory = 'ValueCategory'
+      ProductCreationEnabled = 'ProductCreationEnabled'
     end
   end
 end

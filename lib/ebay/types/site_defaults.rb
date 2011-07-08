@@ -116,6 +116,7 @@ module Ebay # :nodoc:
     #  text_node :condition_enabled, 'ConditionEnabled', :optional => true
     #  object_node :condition_values, 'ConditionValues', :class => ConditionValues, :optional => true
     #  boolean_node :value_category, 'ValueCategory', 'true', 'false', :optional => true
+    #  text_node :product_creation_enabled, 'ProductCreationEnabled', :optional => true
     class SiteDefaults
       include XML::Mapping
       include Initializer
@@ -230,6 +231,7 @@ module Ebay # :nodoc:
       text_node :condition_enabled, 'ConditionEnabled', :optional => true
       object_node :condition_values, 'ConditionValues', :class => ConditionValues, :optional => true
       boolean_node :value_category, 'ValueCategory', 'true', 'false', :optional => true
+      text_node :product_creation_enabled, 'ProductCreationEnabled', :optional => true
     end
   end
 end

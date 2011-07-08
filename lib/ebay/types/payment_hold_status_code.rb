@@ -8,6 +8,7 @@ module Ebay # :nodoc:
       Released = 'Released'
       None = 'None'
       NewSellerHold = 'NewSellerHold'
+      PaymentHold = 'PaymentHold'
     end
   end
 end

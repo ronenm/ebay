@@ -261,6 +261,8 @@ module Ebay # :nodoc:
       RealEstateProFeatureFee = 'RealEstateProFeatureFee'
       CreditRealEstateProFeatureFee = 'CreditRealEstateProFeatureFee'
       Discount = 'Discount'
+      CreditFinalValueShipping = 'CreditFinalValueShipping'
+      FeeFinalValueShipping = 'FeeFinalValueShipping'
     end
   end
 end

@@ -1,10 +1,11 @@
 module Ebay # :nodoc:
   module Types # :nodoc:
-    class CategoryListingsSearchCode
+    class PricingTreatmentCode
       extend Enumerable
       extend Enumeration
-      Featured = 'Featured'
-      SuperFeatured = 'SuperFeatured'
+      STP = 'STP'
+      MAP = 'MAP'
+      None = 'None'
     end
   end
 end
