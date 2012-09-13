@@ -34,6 +34,7 @@ module Ebay # :nodoc:
     #  text_node :last_name, 'LastName', :optional => true
     #  text_node :phone2, 'Phone2', :optional => true
     #  text_node :address_usage, 'AddressUsage', :optional => true
+    #  text_node :reference_id, 'ReferenceID', :optional => true
     class Address
       include XML::Mapping
       include Initializer
@@ -70,6 +71,7 @@ module Ebay # :nodoc:
       text_node :last_name, 'LastName', :optional => true
       text_node :phone2, 'Phone2', :optional => true
       text_node :address_usage, 'AddressUsage', :optional => true
+      text_node :reference_id, 'ReferenceID', :optional => true
     end
   end
 end

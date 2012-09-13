@@ -9,6 +9,9 @@ module Ebay # :nodoc:
       None = 'None'
       NewSellerHold = 'NewSellerHold'
       PaymentHold = 'PaymentHold'
+      ReleasePending = 'ReleasePending'
+      ReleaseConfirmed = 'ReleaseConfirmed'
+      ReleaseFailed = 'ReleaseFailed'
     end
   end
 end

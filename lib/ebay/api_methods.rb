@@ -561,14 +561,6 @@ module Ebay
     def get_picture_manager_options(params = {})
       commit(Ebay::Requests::GetPictureManagerOptions, params)
     end
-    # Builds Ebay::Requests#GetPopularKeywords
-    #
-    # Returns Ebay::Responses#GetPopularKeywords
-    #
-    # Official Documentation for GetPopularKeywords[http://developer.ebay.com/DevZone/XML/docs/Reference/eBay/io_GetPopularKeywords.html]
-    def get_popular_keywords(params = {})
-      commit(Ebay::Requests::GetPopularKeywords, params)
-    end
     # Builds Ebay::Requests#GetProductFamilyMembers
     #
     # Returns Ebay::Responses#GetProductFamilyMembers
@@ -616,14 +608,6 @@ module Ebay
     # Official Documentation for GetProductSellingPages[http://developer.ebay.com/DevZone/XML/docs/Reference/eBay/io_GetProductSellingPages.html]
     def get_product_selling_pages(params = {})
       commit(Ebay::Requests::GetProductSellingPages, params)
-    end
-    # Builds Ebay::Requests#GetProducts
-    #
-    # Returns Ebay::Responses#GetProducts
-    #
-    # Official Documentation for GetProducts[http://developer.ebay.com/DevZone/XML/docs/Reference/eBay/io_GetProducts.html]
-    def get_products(params = {})
-      commit(Ebay::Requests::GetProducts, params)
     end
     # Builds Ebay::Requests#GetPromotionRules
     #

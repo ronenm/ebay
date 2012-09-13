@@ -8,6 +8,7 @@ module Ebay # :nodoc:
     #  numeric_node :shipping_service_priority, 'ShippingServicePriority', :optional => true
     #  text_node :ship_to_location, 'ShipToLocation', :optional => true
     #  money_node :shipping_insurance_cost, 'ShippingInsuranceCost', :optional => true
+    #  money_node :import_charge, 'ImportCharge', :optional => true
     class InternationalShippingServiceOptions
       include XML::Mapping
       include Initializer
@@ -18,6 +19,7 @@ module Ebay # :nodoc:
       numeric_node :shipping_service_priority, 'ShippingServicePriority', :optional => true
       text_node :ship_to_location, 'ShipToLocation', :optional => true
       money_node :shipping_insurance_cost, 'ShippingInsuranceCost', :optional => true
+      money_node :import_charge, 'ImportCharge', :optional => true
     end
   end
 end

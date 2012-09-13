@@ -263,6 +263,10 @@ module Ebay # :nodoc:
       Discount = 'Discount'
       CreditFinalValueShipping = 'CreditFinalValueShipping'
       FeeFinalValueShipping = 'FeeFinalValueShipping'
+      FeeReturnShipping = 'FeeReturnShipping'
+      CreditReturnShipping = 'CreditReturnShipping'
+      FeeGlobalShippingProgram = 'FeeGlobalShippingProgram'
+      CreditGlobalShippingProgram = 'CreditGlobalShippingProgram'
     end
   end
 end

@@ -5,6 +5,7 @@ require 'ebay/types/warranty_offered_details'
 require 'ebay/types/warranty_type_details'
 require 'ebay/types/warranty_duration_details'
 require 'ebay/types/shipping_cost_paid_by_details'
+require 'ebay/types/restocking_fee_value_details'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
@@ -18,6 +19,7 @@ module Ebay # :nodoc:
     #  array_node :warranty_durations, 'WarrantyDuration', :class => WarrantyDurationDetails, :default_value => []
     #  boolean_node :ean, 'EAN', 'true', 'false', :optional => true
     #  array_node :shipping_cost_paid_bies, 'ShippingCostPaidBy', :class => ShippingCostPaidByDetails, :default_value => []
+    #  array_node :restocking_fee_values, 'RestockingFeeValue', :class => RestockingFeeValueDetails, :default_value => []
     #  text_node :detail_version, 'DetailVersion', :optional => true
     #  time_node :update_time, 'UpdateTime', :optional => true
     class ReturnPolicyDetails
@@ -33,6 +35,7 @@ module Ebay # :nodoc:
       array_node :warranty_durations, 'WarrantyDuration', :class => WarrantyDurationDetails, :default_value => []
       boolean_node :ean, 'EAN', 'true', 'false', :optional => true
       array_node :shipping_cost_paid_bies, 'ShippingCostPaidBy', :class => ShippingCostPaidByDetails, :default_value => []
+      array_node :restocking_fee_values, 'RestockingFeeValue', :class => RestockingFeeValueDetails, :default_value => []
       text_node :detail_version, 'DetailVersion', :optional => true
       time_node :update_time, 'UpdateTime', :optional => true
     end

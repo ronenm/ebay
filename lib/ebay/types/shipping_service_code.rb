@@ -85,6 +85,7 @@ module Ebay # :nodoc:
       AUAusPostRegisteredPostInternationalParcel = 'AU_AusPostRegisteredPostInternationalParcel'
       AUExpeditedDeliveryFromOutsideAU = 'AU_ExpeditedDeliveryFromOutsideAU'
       AUEconomyDeliveryFromOutsideAU = 'AU_EconomyDeliveryFromOutsideAU'
+      AUStandardDeliveryFromOutsideAU = 'AU_StandardDeliveryFromOutsideAU'
       AUAustralianAirExpressMetro15kg = 'AU_AustralianAirExpressMetro15kg'
       AUAustralianAirExpressFlatRate5kg = 'AU_AustralianAirExpressFlatRate5kg'
       AUAustralianAirExpressFlatRate3kg = 'AU_AustralianAirExpressFlatRate3kg'
@@ -649,6 +650,7 @@ module Ebay # :nodoc:
       DEStandardversandAusDemAusland = 'DE_StandardversandAusDemAusland'
       DEExpressversandAusDemAusland = 'DE_ExpressversandAusDemAusland'
       DEDHL2KGPaket = 'DE_DHL2KGPaket'
+      InternationalPriorityShipping = 'InternationalPriorityShipping'
     end
   end
 end

@@ -32,6 +32,11 @@ require 'ebay/types/return_policy'
 require 'ebay/types/variations'
 require 'ebay/types/item_compatibility_list'
 require 'ebay/types/discount_price_info'
+require 'ebay/types/quantity_info'
+require 'ebay/types/seller_profiles'
+require 'ebay/types/ship_package_details'
+require 'ebay/types/quantity_restriction_per_buyer_info'
+require 'ebay/types/unit_info'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
@@ -152,12 +157,30 @@ module Ebay # :nodoc:
     #  object_node :item_compatibility_list, 'ItemCompatibilityList', :class => ItemCompatibilityList, :optional => true
     #  numeric_node :item_compatibility_count, 'ItemCompatibilityCount', :optional => true
     #  numeric_node :condition_id, 'ConditionID', :optional => true
+    #  text_node :condition_description, 'ConditionDescription', :optional => true
     #  text_node :condition_display_name, 'ConditionDisplayName', :optional => true
     #  text_node :tax_category, 'TaxCategory', :optional => true
     #  text_node :quantity_available_hint, 'QuantityAvailableHint', :optional => true
     #  numeric_node :quantity_threshold, 'QuantityThreshold', :optional => true
     #  boolean_node :post_checkout_experience_enabled, 'PostCheckoutExperienceEnabled', 'true', 'false', :optional => true
     #  object_node :discount_price_info, 'DiscountPriceInfo', :class => DiscountPriceInfo, :optional => true
+    #  boolean_node :use_recommended_product, 'UseRecommendedProduct', 'true', 'false', :optional => true
+    #  text_node :seller_provided_title, 'SellerProvidedTitle', :optional => true
+    #  text_node :vin, 'VIN', :optional => true
+    #  text_node :vin_link, 'VINLink', :optional => true
+    #  text_node :vrm, 'VRM', :optional => true
+    #  text_node :vrm_link, 'VRMLink', :optional => true
+    #  object_node :quantity_info, 'QuantityInfo', :class => QuantityInfo, :optional => true
+    #  object_node :seller_profiles, 'SellerProfiles', :class => SellerProfiles, :optional => true
+    #  object_node :shipping_package_details, 'ShippingPackageDetails', :class => ShipPackageDetails, :optional => true
+    #  boolean_node :top_rated_listing, 'TopRatedListing', 'true', 'false', :optional => true
+    #  money_node :floor_price, 'FloorPrice', :optional => true
+    #  money_node :ceiling_price, 'CeilingPrice', :optional => true
+    #  object_node :quantity_restriction_per_buyer, 'QuantityRestrictionPerBuyer', :class => QuantityRestrictionPerBuyerInfo, :optional => true
+    #  boolean_node :is_intermediated_shipping_eligible, 'IsIntermediatedShippingEligible', 'true', 'false', :optional => true
+    #  object_node :unit_info, 'UnitInfo', :class => UnitInfo, :optional => true
+    #  numeric_node :relist_parent_id, 'RelistParentID', :optional => true
+    #  text_node :condition_definition, 'ConditionDefinition', :optional => true
     class Item
       include XML::Mapping
       include Initializer
@@ -278,12 +301,30 @@ module Ebay # :nodoc:
       object_node :item_compatibility_list, 'ItemCompatibilityList', :class => ItemCompatibilityList, :optional => true
       numeric_node :item_compatibility_count, 'ItemCompatibilityCount', :optional => true
       numeric_node :condition_id, 'ConditionID', :optional => true
+      text_node :condition_description, 'ConditionDescription', :optional => true
       text_node :condition_display_name, 'ConditionDisplayName', :optional => true
       text_node :tax_category, 'TaxCategory', :optional => true
       text_node :quantity_available_hint, 'QuantityAvailableHint', :optional => true
       numeric_node :quantity_threshold, 'QuantityThreshold', :optional => true
       boolean_node :post_checkout_experience_enabled, 'PostCheckoutExperienceEnabled', 'true', 'false', :optional => true
       object_node :discount_price_info, 'DiscountPriceInfo', :class => DiscountPriceInfo, :optional => true
+      boolean_node :use_recommended_product, 'UseRecommendedProduct', 'true', 'false', :optional => true
+      text_node :seller_provided_title, 'SellerProvidedTitle', :optional => true
+      text_node :vin, 'VIN', :optional => true
+      text_node :vin_link, 'VINLink', :optional => true
+      text_node :vrm, 'VRM', :optional => true
+      text_node :vrm_link, 'VRMLink', :optional => true
+      object_node :quantity_info, 'QuantityInfo', :class => QuantityInfo, :optional => true
+      object_node :seller_profiles, 'SellerProfiles', :class => SellerProfiles, :optional => true
+      object_node :shipping_package_details, 'ShippingPackageDetails', :class => ShipPackageDetails, :optional => true
+      boolean_node :top_rated_listing, 'TopRatedListing', 'true', 'false', :optional => true
+      money_node :floor_price, 'FloorPrice', :optional => true
+      money_node :ceiling_price, 'CeilingPrice', :optional => true
+      object_node :quantity_restriction_per_buyer, 'QuantityRestrictionPerBuyer', :class => QuantityRestrictionPerBuyerInfo, :optional => true
+      boolean_node :is_intermediated_shipping_eligible, 'IsIntermediatedShippingEligible', 'true', 'false', :optional => true
+      object_node :unit_info, 'UnitInfo', :class => UnitInfo, :optional => true
+      numeric_node :relist_parent_id, 'RelistParentID', :optional => true
+      text_node :condition_definition, 'ConditionDefinition', :optional => true
     end
   end
 end

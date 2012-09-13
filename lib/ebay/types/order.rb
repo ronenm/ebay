@@ -5,6 +5,8 @@ require 'ebay/types/shipping_service_options'
 require 'ebay/types/external_transaction'
 require 'ebay/types/transaction'
 require 'ebay/types/payment_hold_detail'
+require 'ebay/types/refund'
+require 'ebay/types/multi_leg_shipping_details'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
@@ -35,6 +37,11 @@ module Ebay # :nodoc:
     #  text_node :eias_token, 'EIASToken', :optional => true
     #  text_node :payment_hold_status, 'PaymentHoldStatus', :optional => true
     #  object_node :payment_hold_details, 'PaymentHoldDetails', :class => PaymentHoldDetail, :optional => true
+    #  array_node :refunds, 'RefundArray', 'Refund', :class => Refund, :default_value => []
+    #  money_node :refund_amount, 'RefundAmount', :optional => true
+    #  text_node :refund_status, 'RefundStatus', :optional => true
+    #  boolean_node :is_multi_leg_shipping, 'IsMultiLegShipping', 'true', 'false', :optional => true
+    #  object_node :multi_leg_shipping_details, 'MultiLegShippingDetails', :class => MultiLegShippingDetails, :optional => true
     class Order
       include XML::Mapping
       include Initializer
@@ -65,6 +72,11 @@ module Ebay # :nodoc:
       text_node :eias_token, 'EIASToken', :optional => true
       text_node :payment_hold_status, 'PaymentHoldStatus', :optional => true
       object_node :payment_hold_details, 'PaymentHoldDetails', :class => PaymentHoldDetail, :optional => true
+      array_node :refunds, 'RefundArray', 'Refund', :class => Refund, :default_value => []
+      money_node :refund_amount, 'RefundAmount', :optional => true
+      text_node :refund_status, 'RefundStatus', :optional => true
+      boolean_node :is_multi_leg_shipping, 'IsMultiLegShipping', 'true', 'false', :optional => true
+      object_node :multi_leg_shipping_details, 'MultiLegShippingDetails', :class => MultiLegShippingDetails, :optional => true
     end
   end
 end

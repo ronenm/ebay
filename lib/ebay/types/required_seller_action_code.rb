@@ -5,6 +5,10 @@ module Ebay # :nodoc:
       extend Enumeration
       ResolveeBPCase = 'ResolveeBPCase'
       MarkAsShipped = 'MarkAsShipped'
+      ContacteBayCS = 'ContacteBayCS'
+      ResolvePPPIcase = 'ResolvePPPIcase'
+      SetupPayoutMethod = 'SetupPayoutMethod'
+      UpdatePayoutMethod = 'UpdatePayoutMethod'
       None = 'None'
     end
   end

@@ -8,6 +8,7 @@ module Ebay # :nodoc:
     #  text_node :pricing_treatment, 'PricingTreatment', :optional => true
     #  boolean_node :sold_on_ebay, 'SoldOneBay', 'true', 'false', :optional => true
     #  boolean_node :sold_off_ebay, 'SoldOffeBay', 'true', 'false', :optional => true
+    #  money_node :made_for_outlet_comparison_price, 'MadeForOutletComparisonPrice', :optional => true
     class DiscountPriceInfo
       include XML::Mapping
       include Initializer
@@ -18,6 +19,7 @@ module Ebay # :nodoc:
       text_node :pricing_treatment, 'PricingTreatment', :optional => true
       boolean_node :sold_on_ebay, 'SoldOneBay', 'true', 'false', :optional => true
       boolean_node :sold_off_ebay, 'SoldOffeBay', 'true', 'false', :optional => true
+      money_node :made_for_outlet_comparison_price, 'MadeForOutletComparisonPrice', :optional => true
     end
   end
 end

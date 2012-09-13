@@ -18,6 +18,8 @@ module Ebay # :nodoc:
     #  text_node :ean, 'EAN', :optional => true
     #  text_node :shipping_cost_paid_by_option, 'ShippingCostPaidByOption', :optional => true
     #  text_node :shipping_cost_paid_by, 'ShippingCostPaidBy', :optional => true
+    #  text_node :restocking_fee_value, 'RestockingFeeValue', :optional => true
+    #  text_node :restocking_fee_value_option, 'RestockingFeeValueOption', :optional => true
     class ReturnPolicy
       include XML::Mapping
       include Initializer
@@ -38,6 +40,8 @@ module Ebay # :nodoc:
       text_node :ean, 'EAN', :optional => true
       text_node :shipping_cost_paid_by_option, 'ShippingCostPaidByOption', :optional => true
       text_node :shipping_cost_paid_by, 'ShippingCostPaidBy', :optional => true
+      text_node :restocking_fee_value, 'RestockingFeeValue', :optional => true
+      text_node :restocking_fee_value_option, 'RestockingFeeValueOption', :optional => true
     end
   end
 end

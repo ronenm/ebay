@@ -15,6 +15,7 @@ module Ebay # :nodoc:
     # == Attributes
     #  boolean_node :allow_payment_edit, 'AllowPaymentEdit', 'true', 'false', :optional => true
     #  boolean_node :apply_shipping_discount, 'ApplyShippingDiscount', 'true', 'false', :optional => true
+    #  boolean_node :global_shipping, 'GlobalShipping', 'true', 'false', :optional => true
     #  object_node :calculated_shipping_rate, 'CalculatedShippingRate', :class => CalculatedShippingRate, :optional => true
     #  boolean_node :change_payment_instructions, 'ChangePaymentInstructions', 'true', 'false', :optional => true
     #  money_node :insurance_fee, 'InsuranceFee', :optional => true
@@ -56,6 +57,7 @@ module Ebay # :nodoc:
       root_element_name 'ShippingDetails'
       boolean_node :allow_payment_edit, 'AllowPaymentEdit', 'true', 'false', :optional => true
       boolean_node :apply_shipping_discount, 'ApplyShippingDiscount', 'true', 'false', :optional => true
+      boolean_node :global_shipping, 'GlobalShipping', 'true', 'false', :optional => true
       object_node :calculated_shipping_rate, 'CalculatedShippingRate', :class => CalculatedShippingRate, :optional => true
       boolean_node :change_payment_instructions, 'ChangePaymentInstructions', 'true', 'false', :optional => true
       money_node :insurance_fee, 'InsuranceFee', :optional => true

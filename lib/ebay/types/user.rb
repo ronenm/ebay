@@ -29,6 +29,7 @@ module Ebay # :nodoc:
     #  text_node :vat_status, 'VATStatus', :optional => true
     #  object_node :buyer_info, 'BuyerInfo', :class => Buyer, :optional => true
     #  object_node :seller_info, 'SellerInfo', :class => Seller, :optional => true
+    #  text_node :business_role, 'BusinessRole', :optional => true
     #  array_node :charity_affiliations, 'CharityAffiliations', 'CharityID', :class => CharityID, :default_value => []
     #  text_node :paypal_account_level, 'PayPalAccountLevel', :optional => true
     #  text_node :paypal_account_type, 'PayPalAccountType', :optional => true
@@ -74,6 +75,7 @@ module Ebay # :nodoc:
       text_node :vat_status, 'VATStatus', :optional => true
       object_node :buyer_info, 'BuyerInfo', :class => Buyer, :optional => true
       object_node :seller_info, 'SellerInfo', :class => Seller, :optional => true
+      text_node :business_role, 'BusinessRole', :optional => true
       array_node :charity_affiliations, 'CharityAffiliations', 'CharityID', :class => CharityID, :default_value => []
       text_node :paypal_account_level, 'PayPalAccountLevel', :optional => true
       text_node :paypal_account_type, 'PayPalAccountType', :optional => true

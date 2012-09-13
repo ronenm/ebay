@@ -45,6 +45,10 @@ module Ebay # :nodoc:
       ClassifiedAdPayPerLeadEnabled = 'ClassifiedAdPayPerLeadEnabled'
       ItemSpecificsEnabled = 'ItemSpecificsEnabled'
       PaisaPayFullEscrowEnabled = 'PaisaPayFullEscrowEnabled'
+      ISBNIdentifierEnabled = 'ISBNIdentifierEnabled'
+      UPCIdentifierEnabled = 'UPCIdentifierEnabled'
+      EANIdentifierEnabled = 'EANIdentifierEnabled'
+      BrandMPNIdentifierEnabled = 'BrandMPNIdentifierEnabled'
       ClassifiedAdAutoAcceptEnabled = 'ClassifiedAdAutoAcceptEnabled'
       BestOfferAutoAcceptEnabled = 'BestOfferAutoAcceptEnabled'
       CrossBorderTradeEnabled = 'CrossBorderTradeEnabled'
@@ -109,6 +113,17 @@ module Ebay # :nodoc:
       ConditionValues = 'ConditionValues'
       ValueCategory = 'ValueCategory'
       ProductCreationEnabled = 'ProductCreationEnabled'
+      MaxGranularFitmentCount = 'MaxGranularFitmentCount'
+      CompatibleVehicleType = 'CompatibleVehicleType'
+      PaymentOptionsGroup = 'PaymentOptionsGroup'
+      ShippingProfileCategoryGroup = 'ShippingProfileCategoryGroup'
+      PaymentProfileCategoryGroup = 'PaymentProfileCategoryGroup'
+      ReturnPolicyProfileCategoryGroup = 'ReturnPolicyProfileCategoryGroup'
+      VINSupported = 'VINSupported'
+      VRMSupported = 'VRMSupported'
+      SellerProvidedTitleSupported = 'SellerProvidedTitleSupported'
+      DepositSupported = 'DepositSupported'
+      GlobalShippingEnabled = 'GlobalShippingEnabled'
     end
   end
 end

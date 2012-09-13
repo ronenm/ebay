@@ -12,6 +12,9 @@ require 'ebay/types/refund'
 require 'ebay/types/variation'
 require 'ebay/types/taxes'
 require 'ebay/types/payment_hold_detail'
+require 'ebay/types/seller_discounts'
+require 'ebay/types/multi_leg_shipping_details'
+require 'ebay/types/unpaid_item'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
@@ -63,6 +66,15 @@ module Ebay # :nodoc:
     #  money_node :actual_handling_cost, 'ActualHandlingCost', :optional => true
     #  text_node :order_line_item_id, 'OrderLineItemID', :optional => true
     #  object_node :payment_hold_details, 'PaymentHoldDetails', :class => PaymentHoldDetail, :optional => true
+    #  object_node :seller_discounts, 'SellerDiscounts', :class => SellerDiscounts, :optional => true
+    #  money_node :refund_amount, 'RefundAmount', :optional => true
+    #  text_node :refund_status, 'RefundStatus', :optional => true
+    #  text_node :codice_fiscale, 'CodiceFiscale', :optional => true
+    #  boolean_node :is_multi_leg_shipping, 'IsMultiLegShipping', 'true', 'false', :optional => true
+    #  object_node :multi_leg_shipping_details, 'MultiLegShippingDetails', :class => MultiLegShippingDetails, :optional => true
+    #  time_node :invoice_sent_time, 'InvoiceSentTime', :optional => true
+    #  object_node :unpaid_item, 'UnpaidItem', :class => UnpaidItem, :optional => true
+    #  boolean_node :intangible_item, 'IntangibleItem', 'true', 'false', :optional => true
     class Transaction
       include XML::Mapping
       include Initializer
@@ -114,6 +126,15 @@ module Ebay # :nodoc:
       money_node :actual_handling_cost, 'ActualHandlingCost', :optional => true
       text_node :order_line_item_id, 'OrderLineItemID', :optional => true
       object_node :payment_hold_details, 'PaymentHoldDetails', :class => PaymentHoldDetail, :optional => true
+      object_node :seller_discounts, 'SellerDiscounts', :class => SellerDiscounts, :optional => true
+      money_node :refund_amount, 'RefundAmount', :optional => true
+      text_node :refund_status, 'RefundStatus', :optional => true
+      text_node :codice_fiscale, 'CodiceFiscale', :optional => true
+      boolean_node :is_multi_leg_shipping, 'IsMultiLegShipping', 'true', 'false', :optional => true
+      object_node :multi_leg_shipping_details, 'MultiLegShippingDetails', :class => MultiLegShippingDetails, :optional => true
+      time_node :invoice_sent_time, 'InvoiceSentTime', :optional => true
+      object_node :unpaid_item, 'UnpaidItem', :class => UnpaidItem, :optional => true
+      boolean_node :intangible_item, 'IntangibleItem', 'true', 'false', :optional => true
     end
   end
 end

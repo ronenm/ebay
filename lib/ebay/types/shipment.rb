@@ -2,6 +2,7 @@ require 'ebay/types/measure'
 require 'ebay/types/address'
 require 'ebay/types/item_transaction_id'
 require 'ebay/types/shipment_tracking_details'
+require 'ebay/types/line_item'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
@@ -33,6 +34,7 @@ module Ebay # :nodoc:
     #  time_node :shipped_time, 'ShippedTime', :optional => true
     #  text_node :notes, 'Notes', :optional => true
     #  array_node :shipment_tracking_details, 'ShipmentTrackingDetails', :class => ShipmentTrackingDetails, :default_value => []
+    #  array_node :shipment_line_items, 'ShipmentLineItem', 'LineItem', :class => LineItem, :default_value => []
     class Shipment
       include XML::Mapping
       include Initializer
@@ -64,6 +66,7 @@ module Ebay # :nodoc:
       time_node :shipped_time, 'ShippedTime', :optional => true
       text_node :notes, 'Notes', :optional => true
       array_node :shipment_tracking_details, 'ShipmentTrackingDetails', :class => ShipmentTrackingDetails, :default_value => []
+      array_node :shipment_line_items, 'ShipmentLineItem', 'LineItem', :class => LineItem, :default_value => []
     end
   end
 end

@@ -6,6 +6,7 @@ module Ebay # :nodoc:
       STP = 'STP'
       MAP = 'MAP'
       None = 'None'
+      MFO = 'MFO'
     end
   end
 end
