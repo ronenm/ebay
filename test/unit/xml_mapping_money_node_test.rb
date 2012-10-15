@@ -17,7 +17,7 @@ class MoneyNodeTest < Test::Unit::TestCase
   def setup
     @xml = <<-END
 <Widget>
-  <Amount currencyID="CAD">10.00</Amount>
+  <Amount currencyID="CAD">19.99</Amount>
 </Widget>
   END
 
@@ -26,15 +26,15 @@ class MoneyNodeTest < Test::Unit::TestCase
   def test_load_from_xml
     item = Widget.load_from_xml(REXML::Document.new(@xml).root)
     assert_instance_of Money, item.amount
-    assert_equal 1000, item.amount.cents
+    assert_equal 1999, item.amount.cents
     assert_equal 'CAD', item.amount.currency
   end
   
   def test_to_xml
     item = Widget.new
-    item.amount = Money.new(100, 'CAD')
+    item.amount = Money.new(1999, 'CAD')
     item_xml = item.save_to_xml
-    assert_equal '1.00', item_xml.elements[1].text
+    assert_equal '19.99', item_xml.elements[1].text
     assert_equal 'CAD', item_xml.elements[1].attributes['currencyID']
   end
   

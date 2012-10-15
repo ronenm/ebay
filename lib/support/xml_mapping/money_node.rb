@@ -8,9 +8,9 @@ class MoneyNode < XML::Mapping::SingleAttributeNode
   end
 
   def extract_attr_value(xml)
-    amount, currency = default_when_xpath_err{ [(@amount_path.first(xml).text.to_f * 100).to_i,
-                                     @currency_path.first(xml).text]
-                                  }
+    amount, currency = default_when_xpath_err {
+      [(BigDecimal.new(@amount_path.first(xml).text) * 100).to_i, @currency_path.first(xml).text]
+    }
     Money.new(amount, currency)
   end
 
