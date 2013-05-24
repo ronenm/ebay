@@ -1,9 +1,9 @@
-require 'ebay/types/category'
+require 'ebay/types/category_array'
 
 module Ebay # :nodoc:
   module Responses # :nodoc:
     # == Attributes
-    #  array_node :categories, 'CategoryArray', 'Category', :class => Category, :default_value => []
+    #  object_node :categories, 'CategoryArray', :class => CategoryArray, :optional => true
     #  numeric_node :category_count, 'CategoryCount', :optional => true
     #  time_node :update_time, 'UpdateTime', :optional => true
     #  text_node :category_version, 'CategoryVersion', :optional => true
@@ -14,7 +14,7 @@ module Ebay # :nodoc:
       include XML::Mapping
       include Initializer
       root_element_name 'GetCategoriesResponse'
-      array_node :categories, 'CategoryArray', 'Category', :class => Category, :default_value => []
+      object_node :categories, 'CategoryArray', :class => CategoryArray, :optional => true
       numeric_node :category_count, 'CategoryCount', :optional => true
       time_node :update_time, 'UpdateTime', :optional => true
       text_node :category_version, 'CategoryVersion', :optional => true

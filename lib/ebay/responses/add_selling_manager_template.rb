@@ -1,5 +1,5 @@
 require 'ebay/types/selling_manager_product_details'
-require 'ebay/types/fee'
+require 'ebay/types/fees'
 
 module Ebay # :nodoc:
   module Responses # :nodoc:
@@ -10,7 +10,7 @@ module Ebay # :nodoc:
     #  numeric_node :sale_template_group_id, 'SaleTemplateGroupID', :optional => true
     #  text_node :sale_template_name, 'SaleTemplateName', :optional => true
     #  object_node :selling_manager_product_details, 'SellingManagerProductDetails', :class => SellingManagerProductDetails, :optional => true
-    #  array_node :fees, 'Fees', 'Fee', :class => Fee, :default_value => []
+    #  object_node :fees, 'Fees', :class => Fees, :optional => true
     class AddSellingManagerTemplate < Abstract
       include XML::Mapping
       include Initializer
@@ -21,7 +21,7 @@ module Ebay # :nodoc:
       numeric_node :sale_template_group_id, 'SaleTemplateGroupID', :optional => true
       text_node :sale_template_name, 'SaleTemplateName', :optional => true
       object_node :selling_manager_product_details, 'SellingManagerProductDetails', :class => SellingManagerProductDetails, :optional => true
-      array_node :fees, 'Fees', 'Fee', :class => Fee, :default_value => []
+      object_node :fees, 'Fees', :class => Fees, :optional => true
     end
   end
 end

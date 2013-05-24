@@ -2,12 +2,12 @@
 module Ebay # :nodoc:
   module Responses # :nodoc:
     # == Attributes
-    #  text_node :picture_url, 'PictureURL', :optional => true
+    #  value_array_node :picture_urls, 'PictureURL', :default_value => []
     class ExtendSiteHostedPictures < Abstract
       include XML::Mapping
       include Initializer
       root_element_name 'ExtendSiteHostedPicturesResponse'
-      text_node :picture_url, 'PictureURL', :optional => true
+      value_array_node :picture_urls, 'PictureURL', :default_value => []
     end
   end
 end

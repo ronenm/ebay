@@ -1,3 +1,5 @@
+require 'active_support/core_ext/class'
+
 module Ebay
   module Schema
     class TemplateError < StandardError
@@ -5,23 +7,24 @@ module Ebay
 
     class ClassTemplate
       cattr_accessor :template_dir
-      
+
       self.template_dir = File.dirname(__FILE__) + '/templates'
-        
-      attr_reader :name 
+
+      attr_reader :name
       def initialize(name)
         @name = name
         yield self if block_given?
       end
-    
+
       def load
         @template = load_template
         self
       end
-      
+
       def render(definition)
         raise TemplateError, "No template has been loaded" if @template.nil?
-        @template.result(definition.send(:binding))
+        template = @template
+        definition.instance_eval { template.result(binding) }
       end
 
       def exists?
@@ -33,11 +36,11 @@ module Ebay
         raise(TemplateError, "Could not find template #{template_path}") unless exists?
         @template = ERB.new(File.read(template_path), nil, '-')
       end
-      
+
       def template_path
         template_name(@name)
       end
-      
+
       def template_name(name)
         "#{template_dir}/#{name}.erb"
       end

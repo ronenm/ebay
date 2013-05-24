@@ -1,4 +1,4 @@
-require 'ebay/types/listing_duration_definition'
+require 'ebay/types/listing_duration_definitions'
 require 'ebay/types/shipping_term_required_definition'
 require 'ebay/types/best_offer_enabled_definition'
 require 'ebay/types/dutch_bin_enabled_definition'
@@ -122,11 +122,12 @@ require 'ebay/types/vrm_supported_definition'
 require 'ebay/types/seller_provided_title_supported_definition'
 require 'ebay/types/deposit_supported_definition'
 require 'ebay/types/global_shipping_enabled_definition'
+require 'ebay/types/additional_compatibility_enabled_definition'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
     # == Attributes
-    #  array_node :listing_durations, 'ListingDurations', 'ListingDuration', :class => ListingDurationDefinition, :default_value => []
+    #  object_node :listing_durations, 'ListingDurations', :class => ListingDurationDefinitions, :optional => true
     #  object_node :shipping_terms_required, 'ShippingTermsRequired', :class => ShippingTermRequiredDefinition, :optional => true
     #  object_node :best_offer_enabled, 'BestOfferEnabled', :class => BestOfferEnabledDefinition, :optional => true
     #  object_node :dutch_bin_enabled, 'DutchBINEnabled', :class => DutchBINEnabledDefinition, :optional => true
@@ -252,11 +253,12 @@ module Ebay # :nodoc:
     #  object_node :seller_provided_title_supported, 'SellerProvidedTitleSupported', :class => SellerProvidedTitleSupportedDefinition, :optional => true
     #  object_node :deposit_supported, 'DepositSupported', :class => DepositSupportedDefinition, :optional => true
     #  object_node :global_shipping_enabled, 'GlobalShippingEnabled', :class => GlobalShippingEnabledDefinition, :optional => true
+    #  object_node :additional_compatibility_enabled, 'AdditionalCompatibilityEnabled', :class => AdditionalCompatibilityEnabledDefinition, :optional => true
     class FeatureDefinitions
       include XML::Mapping
       include Initializer
       root_element_name 'FeatureDefinitions'
-      array_node :listing_durations, 'ListingDurations', 'ListingDuration', :class => ListingDurationDefinition, :default_value => []
+      object_node :listing_durations, 'ListingDurations', :class => ListingDurationDefinitions, :optional => true
       object_node :shipping_terms_required, 'ShippingTermsRequired', :class => ShippingTermRequiredDefinition, :optional => true
       object_node :best_offer_enabled, 'BestOfferEnabled', :class => BestOfferEnabledDefinition, :optional => true
       object_node :dutch_bin_enabled, 'DutchBINEnabled', :class => DutchBINEnabledDefinition, :optional => true
@@ -382,6 +384,7 @@ module Ebay # :nodoc:
       object_node :seller_provided_title_supported, 'SellerProvidedTitleSupported', :class => SellerProvidedTitleSupportedDefinition, :optional => true
       object_node :deposit_supported, 'DepositSupported', :class => DepositSupportedDefinition, :optional => true
       object_node :global_shipping_enabled, 'GlobalShippingEnabled', :class => GlobalShippingEnabledDefinition, :optional => true
+      object_node :additional_compatibility_enabled, 'AdditionalCompatibilityEnabled', :class => AdditionalCompatibilityEnabledDefinition, :optional => true
     end
   end
 end

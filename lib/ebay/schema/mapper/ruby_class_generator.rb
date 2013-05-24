@@ -9,7 +9,7 @@ module Ebay
 
       def initialize(type, simple_types, complex_types, xml)
         @xml = xml
-                
+
         @indent = 2
         @type = type
         @simple_types, @complex_types = simple_types, complex_types
@@ -36,13 +36,13 @@ module Ebay
       end
 
       def generate_class
-        
+
         template = simple? ? 'value' : 'base'
         base = ClassTemplate.new(template).load
-       
+
         customization = ClassTemplate.new(ebay_underscore(name))
         customization.load if customization.exists?
-        
+
         if request? || response?
           class_name = ebay_camelize(name).gsub(/(Request|Response)$/, '')
         else
@@ -50,20 +50,21 @@ module Ebay
         end
 
         element_name = ebay_camelize(name)
-        
-          
+
+
         class_def = ClassDefinition.new(class_name, element_name, module_name, base_class)
         nodes = generate_nodes
 
         class_def.nodes.concat nodes
-        
+
         class_def.customization = customization.render(class_def) if customization.exists?
-      
+
         # class_def.documentation = @documentation
-        
+
+        puts "Rendering class #{class_name}; element_name #{element_name}, module_name #{module_name}, base_class #{base_class}}"
         base.render(class_def)
       end
-      
+
       def xml_type
         @type.name.name
       end
@@ -109,7 +110,7 @@ module Ebay
       def request?
         abstract_request? || derived_request?
       end
-      
+
       def response?
         abstract_response? || derived_response?
       end
@@ -117,11 +118,11 @@ module Ebay
       def derived_request?
         base_class == 'AbstractRequest'
       end
-      
+
       def derived_response?
         base_class == 'AbstractResponse'
       end
-        
+
 
       private
       def select_template
@@ -135,7 +136,7 @@ module Ebay
 
       def find_base
         return nil if @type.nil?
-        
+
         the_base = case
           when @type.respond_to?(:complexcontent) && @type.complexcontent.respond_to?(:extension)
             @type.complexcontent.extension.base
@@ -144,12 +145,12 @@ module Ebay
           else
             nil
         end
-        
+
         @base = @complex_types.find_name(the_base.name) unless the_base.nil?
       end
 
       def non_inherited_elements
-        return @type.each_element {} if @base.nil?
+        return @type.elements if @base.nil?
 
         @type.elements.reject do |e|
           @base.find_element(e.name)
@@ -172,7 +173,7 @@ module Ebay
               TextNode.new(trim_code_type(a.type.name), :field => "@#{a.name.name}", :min => '0')
             end)
           end
-          
+
           result
         else
           result = nodes_for_complex_elements
@@ -221,37 +222,52 @@ module Ebay
       def node_for(element)
         name = element.name.name
         type = element.type.name
-        min = element.minoccurs || "1"
-        max = element.maxoccurs || "1"
 
-        options = { :type => type,
+        min = element.minoccurs
+
+        # soap4r will set maxoccurs to nil if the value is "unbounded"
+        max = element.maxoccurs || 'unbounded'
+
+        options = { 
+          :type => type,
           :min => min,
           :max => max
         }
 
-        if BuiltInTypes.include?(type)
+        puts "\t- #{name} {#{type}}; min => #{min}; max => #{max}"
+
+        r = if BuiltInTypes.include?(type)
           build_node_for_built_in_type(name, type, options)
         else
           build_node_for_complex_type(name, type, options)
         end
+
+
+        puts "\t\t * generated #{r.inspect}"
+
+        r
       end
 
       def build_node_for_built_in_type(name, type, options)
-        case type
-        when 'string'
-          if self.name == 'Item' && name == 'Description'
-            CdataNode.new(name, options)
-          else
+        if options[:max] == 'unbounded'
+          ValueArrayNode.new(name, options)
+        else
+          case type
+          when 'string'
+            if self.name == 'Item' && name == 'Description'
+              CdataNode.new(name, options)
+            else
+              TextNode.new(name, options)
+            end
+          when 'anyURI', 'token', 'duration'
             TextNode.new(name, options)
+          when 'int', 'float', 'long', 'decimal', 'double'
+            NumericNode.new(name, options)
+          when 'dateTime'
+            DateTimeNode.new(name, options)
+          when 'boolean'
+            BooleanNode.new(name, options)
           end
-        when 'anyURI', 'token', 'duration'
-          TextNode.new(name, options)
-        when 'int', 'float', 'long', 'decimal', 'double'
-          NumericNode.new(name, options)
-        when 'dateTime'
-          DateTimeNode.new(name, options)
-        when 'boolean'
-          BooleanNode.new(name, options)
         end
       end
 
@@ -260,13 +276,13 @@ module Ebay
         simple_type = @simple_types.find_name(type)
 
         case max
-        when "1"
+        when '1', 1
           if simple_type
             TextNode.new(name, options)
           elsif element = @complex_types.find_name(type)
-            element_elements = element.each_element {}
-            
-            if element_elements.nil? and type == 'AmountType'
+            element_elements = element.elements
+
+            if (element_elements.nil? || element_elements.empty?) && type == 'AmountType'
               MoneyNode.new(name, options)
             elsif element_elements.nil?
               ObjectNode.new(name, options)
@@ -275,7 +291,7 @@ module Ebay
               child = element_elements[0]
 
               ignored = %w( MemberMessage BidApproval PromotionalSaleDetails BidAssistantList )
-              
+
               unless BuiltInTypes.include?(child.type.name)
                 @ignored_classes << name unless ignored.include?(name)
                 options[:type] = child.type.name

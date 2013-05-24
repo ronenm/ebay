@@ -30,7 +30,9 @@ module Ebay
     end
   end
 end
-    END
+
+
+END
    
     class_def = ClassDefinition.new('GeteBayOfficialTime', 'GeteBayOfficialTimeRequest', 'Requests', 'AbstractRequest')
     class_def.nodes << TextNode.new('Name')
@@ -57,7 +59,9 @@ module Ebay
     end
   end
 end
-    END
+
+
+END
     
     base = ClassTemplate.new('base').load
 

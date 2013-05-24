@@ -11,9 +11,11 @@ module Ebay
 <% for node in nodes -%>
       <%= node.to_s %>
 <% end -%>
-<% for line in customization -%>
+<% customization.each_line do |line| -%>
       <%= line.chomp %>
 <% end -%>
     end
   end
 end
+
+

@@ -40,7 +40,7 @@ module Ebay
       def customization=(value)
         @customization = value
       end
-      
+
       def customization
         @customization ||= ''
       end

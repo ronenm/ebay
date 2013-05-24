@@ -15,14 +15,18 @@ class NotificationsTest < Test::Unit::TestCase
   end
   
   def test_notification_details
-    assert_equal 1, @body.member_messages.size
-    message = @body.member_messages.first
-    question = message.question
+    message = @body.member_message
+    message_exchanges = message.member_message_exchanges
+    assert_equal 1, message_exchanges.size
+
+    message_exchange = message_exchanges[0]
+    item = message_exchange.item
+    assert_equal '110001567511', item.item_id
+
+    question = message_exchange.question
+    assert_equal 'Question for item #110001567511 - Cowboy Boots', question.subject
     assert_equal 'General', question.question_type
     assert_equal 'Hey, cool boots!', question.body
-    assert_equal 'Question for item #110001567511 - Cowboy Boots', message.question.subject
-    item = message.item
-    assert_equal '110001567511', item.item_id
     assert_equal 'unitednerdsco@hotmail.com', question.sender_email
     assert_equal 'fguser2', question.sender_id
     assert_equal '148860', question.message_id

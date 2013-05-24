@@ -1,14 +1,14 @@
-require 'ebay/types/selling_manager_template_details'
+require 'ebay/types/selling_manager_template_details_array'
 
 module Ebay # :nodoc:
   module Responses # :nodoc:
     # == Attributes
-    #  array_node :selling_manager_template_details, 'SellingManagerTemplateDetailsArray', 'SellingManagerTemplateDetails', :class => SellingManagerTemplateDetails, :default_value => []
+    #  object_node :selling_manager_template_details, 'SellingManagerTemplateDetailsArray', :class => SellingManagerTemplateDetailsArray, :optional => true
     class GetSellingManagerTemplates < Abstract
       include XML::Mapping
       include Initializer
       root_element_name 'GetSellingManagerTemplatesResponse'
-      array_node :selling_manager_template_details, 'SellingManagerTemplateDetailsArray', 'SellingManagerTemplateDetails', :class => SellingManagerTemplateDetails, :default_value => []
+      object_node :selling_manager_template_details, 'SellingManagerTemplateDetailsArray', :class => SellingManagerTemplateDetailsArray, :optional => true
     end
   end
 end

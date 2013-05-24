@@ -3,9 +3,9 @@ require 'ebay/types/shipping_details'
 require 'ebay/types/address'
 require 'ebay/types/shipping_service_options'
 require 'ebay/types/external_transaction'
-require 'ebay/types/transaction'
+require 'ebay/types/transaction_array'
 require 'ebay/types/payment_hold_detail'
-require 'ebay/types/refund'
+require 'ebay/types/refund_array'
 require 'ebay/types/multi_leg_shipping_details'
 
 module Ebay # :nodoc:
@@ -27,7 +27,7 @@ module Ebay # :nodoc:
     #  money_node :subtotal, 'Subtotal', :optional => true
     #  money_node :total, 'Total', :optional => true
     #  array_node :external_transactions, 'ExternalTransaction', :class => ExternalTransaction, :default_value => []
-    #  array_node :transactions, 'TransactionArray', 'Transaction', :class => Transaction, :default_value => []
+    #  object_node :transactions, 'TransactionArray', :class => TransactionArray, :optional => true
     #  text_node :buyer_user_id, 'BuyerUserID', :optional => true
     #  time_node :paid_time, 'PaidTime', :optional => true
     #  time_node :shipped_time, 'ShippedTime', :optional => true
@@ -37,7 +37,7 @@ module Ebay # :nodoc:
     #  text_node :eias_token, 'EIASToken', :optional => true
     #  text_node :payment_hold_status, 'PaymentHoldStatus', :optional => true
     #  object_node :payment_hold_details, 'PaymentHoldDetails', :class => PaymentHoldDetail, :optional => true
-    #  array_node :refunds, 'RefundArray', 'Refund', :class => Refund, :default_value => []
+    #  object_node :refunds, 'RefundArray', :class => RefundArray, :optional => true
     #  money_node :refund_amount, 'RefundAmount', :optional => true
     #  text_node :refund_status, 'RefundStatus', :optional => true
     #  boolean_node :is_multi_leg_shipping, 'IsMultiLegShipping', 'true', 'false', :optional => true
@@ -62,7 +62,7 @@ module Ebay # :nodoc:
       money_node :subtotal, 'Subtotal', :optional => true
       money_node :total, 'Total', :optional => true
       array_node :external_transactions, 'ExternalTransaction', :class => ExternalTransaction, :default_value => []
-      array_node :transactions, 'TransactionArray', 'Transaction', :class => Transaction, :default_value => []
+      object_node :transactions, 'TransactionArray', :class => TransactionArray, :optional => true
       text_node :buyer_user_id, 'BuyerUserID', :optional => true
       time_node :paid_time, 'PaidTime', :optional => true
       time_node :shipped_time, 'ShippedTime', :optional => true
@@ -72,7 +72,7 @@ module Ebay # :nodoc:
       text_node :eias_token, 'EIASToken', :optional => true
       text_node :payment_hold_status, 'PaymentHoldStatus', :optional => true
       object_node :payment_hold_details, 'PaymentHoldDetails', :class => PaymentHoldDetail, :optional => true
-      array_node :refunds, 'RefundArray', 'Refund', :class => Refund, :default_value => []
+      object_node :refunds, 'RefundArray', :class => RefundArray, :optional => true
       money_node :refund_amount, 'RefundAmount', :optional => true
       text_node :refund_status, 'RefundStatus', :optional => true
       boolean_node :is_multi_leg_shipping, 'IsMultiLegShipping', 'true', 'false', :optional => true

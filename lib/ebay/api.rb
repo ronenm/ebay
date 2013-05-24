@@ -167,7 +167,7 @@ module Ebay #:nodoc:
     end
 
     def decompress(response)
-      content = case response['Content-Encoding']
+      case response['Content-Encoding']
       when 'gzip'
         gzr = Zlib::GzipReader.new(StringIO.new(response.body))
         decoded = gzr.read
@@ -185,10 +185,10 @@ module Ebay #:nodoc:
         # Fixes the wrong case of API returned by eBay
         fix_root_element_name(xml)
         result = XML::Mapping.load_object_from_xml(xml.root)
-#        case result.ack
-#        when Ebay::Types::AckCode::Failure, Ebay::Types::AckCode::PartialFailure
-#          raise RequestError.new(result.errors)
-#        end
+
+        if [Ebay::Types::AckCode::Failure, Ebay::Types::AckCode::PartialFailure].include?(result.ack)
+          raise RequestError.new(result.errors)
+        end
       when :raw
         result = content
       else

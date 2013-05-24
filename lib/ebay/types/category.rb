@@ -11,8 +11,8 @@ module Ebay # :nodoc:
     #  text_node :category_id, 'CategoryID', :optional => true
     #  numeric_node :category_level, 'CategoryLevel', :optional => true
     #  text_node :category_name, 'CategoryName', :optional => true
-    #  text_node :category_parent_id, 'CategoryParentID', :optional => true
-    #  text_node :category_parent_name, 'CategoryParentName', :optional => true
+    #  value_array_node :category_parent_ids, 'CategoryParentID', :default_value => []
+    #  value_array_node :category_parent_names, 'CategoryParentName', :default_value => []
     #  boolean_node :product_search_page_available, 'ProductSearchPageAvailable', 'true', 'false', :optional => true
     #  array_node :product_finder_ids, 'ProductFinderIDs', :class => ExtendedProductFinderID, :default_value => []
     #  array_node :characteristics_sets, 'CharacteristicsSets', :class => CharacteristicsSet, :default_value => []
@@ -37,8 +37,8 @@ module Ebay # :nodoc:
       text_node :category_id, 'CategoryID', :optional => true
       numeric_node :category_level, 'CategoryLevel', :optional => true
       text_node :category_name, 'CategoryName', :optional => true
-      text_node :category_parent_id, 'CategoryParentID', :optional => true
-      text_node :category_parent_name, 'CategoryParentName', :optional => true
+      value_array_node :category_parent_ids, 'CategoryParentID', :default_value => []
+      value_array_node :category_parent_names, 'CategoryParentName', :default_value => []
       boolean_node :product_search_page_available, 'ProductSearchPageAvailable', 'true', 'false', :optional => true
       array_node :product_finder_ids, 'ProductFinderIDs', :class => ExtendedProductFinderID, :default_value => []
       array_node :characteristics_sets, 'CharacteristicsSets', :class => CharacteristicsSet, :default_value => []

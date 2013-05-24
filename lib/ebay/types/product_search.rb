@@ -16,7 +16,7 @@ module Ebay # :nodoc:
     #  object_node :pagination, 'Pagination', :class => Pagination, :optional => true
     #  boolean_node :available_items_only, 'AvailableItemsOnly', 'true', 'false', :optional => true
     #  text_node :query_keywords, 'QueryKeywords', :optional => true
-    #  array_node :characteristic_set_ids, 'CharacteristicSetIDs', :class => CharacteristicSetIDs, :default_value => []
+    #  object_node :characteristic_set_ids, 'CharacteristicSetIDs', :class => CharacteristicSetIDs, :optional => true
     #  text_node :product_reference_id, 'ProductReferenceID', :optional => true
     #  object_node :external_product_id, 'ExternalProductID', :class => ExternalProductID, :optional => true
     class ProductSearch
@@ -33,7 +33,7 @@ module Ebay # :nodoc:
       object_node :pagination, 'Pagination', :class => Pagination, :optional => true
       boolean_node :available_items_only, 'AvailableItemsOnly', 'true', 'false', :optional => true
       text_node :query_keywords, 'QueryKeywords', :optional => true
-      array_node :characteristic_set_ids, 'CharacteristicSetIDs', :class => CharacteristicSetIDs, :default_value => []
+      object_node :characteristic_set_ids, 'CharacteristicSetIDs', :class => CharacteristicSetIDs, :optional => true
       text_node :product_reference_id, 'ProductReferenceID', :optional => true
       object_node :external_product_id, 'ExternalProductID', :class => ExternalProductID, :optional => true
     end

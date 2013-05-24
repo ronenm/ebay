@@ -21,8 +21,8 @@ module Ebay # :nodoc:
     #  value_array_node :search_flags, 'SearchFlag', :default_value => []
     #  text_node :payment_method, 'PaymentMethod', :optional => true
     #  text_node :preferred_location, 'PreferredLocation', :optional => true
-    #  text_node :seller_id, 'SellerID', :optional => true
-    #  text_node :seller_id_exclude, 'SellerIDExclude', :optional => true
+    #  value_array_node :seller_ids, 'SellerID', :default_value => []
+    #  value_array_node :seller_id_excludes, 'SellerIDExclude', :default_value => []
     #  text_node :items_available_to, 'ItemsAvailableTo', :optional => true
     #  text_node :items_located_in, 'ItemsLocatedIn', :optional => true
     #  text_node :seller_business_type, 'SellerBusinessType', :optional => true
@@ -52,8 +52,8 @@ module Ebay # :nodoc:
       value_array_node :search_flags, 'SearchFlag', :default_value => []
       text_node :payment_method, 'PaymentMethod', :optional => true
       text_node :preferred_location, 'PreferredLocation', :optional => true
-      text_node :seller_id, 'SellerID', :optional => true
-      text_node :seller_id_exclude, 'SellerIDExclude', :optional => true
+      value_array_node :seller_ids, 'SellerID', :default_value => []
+      value_array_node :seller_id_excludes, 'SellerIDExclude', :default_value => []
       text_node :items_available_to, 'ItemsAvailableTo', :optional => true
       text_node :items_located_in, 'ItemsLocatedIn', :optional => true
       text_node :seller_business_type, 'SellerBusinessType', :optional => true

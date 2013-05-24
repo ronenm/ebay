@@ -267,6 +267,14 @@ module Ebay # :nodoc:
       CreditReturnShipping = 'CreditReturnShipping'
       FeeGlobalShippingProgram = 'FeeGlobalShippingProgram'
       CreditGlobalShippingProgram = 'CreditGlobalShippingProgram'
+      FeeAuctionEndEarly = 'FeeAuctionEndEarly'
+      CreditAuctionEndEarly = 'CreditAuctionEndEarly'
+      FeeFedExShippingLabel = 'FeeFedExShippingLabel'
+      CreditFedExShippingLabel = 'CreditFedExShippingLabel'
+      FeeReturnRefund = 'FeeReturnRefund'
+      CreditReturnRefund = 'CreditReturnRefund'
+      FeeStoresSubscriptionEarlyTermination = 'FeeStoresSubscriptionEarlyTermination'
+      CreditStoresSubscriptionEarlyTermination = 'CreditStoresSubscriptionEarlyTermination'
     end
   end
 end

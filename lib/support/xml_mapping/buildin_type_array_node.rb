@@ -1,0 +1,2 @@
+class BuiltinTypeArrayNode < ValueArrayNode
+end

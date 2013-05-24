@@ -1,5 +1,5 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require File.dirname(__FILE__) + '/../../lib/ebay/schema/mapper'
+require 'test_helper'
+require 'ebay/schema/mapper'
 
 class ClassDefinitionTest < Test::Unit::TestCase
   include Ebay::Schema

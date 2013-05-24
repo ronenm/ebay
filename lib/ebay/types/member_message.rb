@@ -9,7 +9,7 @@ module Ebay # :nodoc:
     #  boolean_node :display_to_public, 'DisplayToPublic', 'true', 'false', :optional => true
     #  text_node :sender_id, 'SenderID', :optional => true
     #  text_node :sender_email, 'SenderEmail', :optional => true
-    #  text_node :recipient_id, 'RecipientID', :optional => true
+    #  value_array_node :recipient_ids, 'RecipientID', :default_value => []
     #  text_node :subject, 'Subject', :optional => true
     #  text_node :body, 'Body', :optional => true
     #  text_node :message_id, 'MessageID', :optional => true
@@ -25,7 +25,7 @@ module Ebay # :nodoc:
       boolean_node :display_to_public, 'DisplayToPublic', 'true', 'false', :optional => true
       text_node :sender_id, 'SenderID', :optional => true
       text_node :sender_email, 'SenderEmail', :optional => true
-      text_node :recipient_id, 'RecipientID', :optional => true
+      value_array_node :recipient_ids, 'RecipientID', :default_value => []
       text_node :subject, 'Subject', :optional => true
       text_node :body, 'Body', :optional => true
       text_node :message_id, 'MessageID', :optional => true

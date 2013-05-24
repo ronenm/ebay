@@ -2,12 +2,12 @@
 module Ebay # :nodoc:
   module Types # :nodoc:
     # == Attributes
-    #  numeric_node :feedback_score, 'FeedbackScore', :optional => true
+    #  value_array_node :feedback_scores, 'FeedbackScore', :default_value => []
     class MinimumFeedbackScoreDetails
       include XML::Mapping
       include Initializer
       root_element_name 'MinimumFeedbackScoreDetails'
-      numeric_node :feedback_score, 'FeedbackScore', :optional => true
+      value_array_node :feedback_scores, 'FeedbackScore', :default_value => []
     end
   end
 end

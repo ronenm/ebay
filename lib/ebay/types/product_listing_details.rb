@@ -9,7 +9,7 @@ module Ebay # :nodoc:
     #  boolean_node :include_prefilled_item_information, 'IncludePrefilledItemInformation', 'true', 'false', :optional => true
     #  boolean_node :use_stock_photo_url_as_gallery, 'UseStockPhotoURLAsGallery', 'true', 'false', :optional => true
     #  text_node :stock_photo_url, 'StockPhotoURL', :optional => true
-    #  text_node :copyright, 'Copyright', :optional => true
+    #  value_array_node :copyrights, 'Copyright', :default_value => []
     #  text_node :product_reference_id, 'ProductReferenceID', :optional => true
     #  text_node :details_url, 'DetailsURL', :optional => true
     #  text_node :product_details_url, 'ProductDetailsURL', :optional => true
@@ -31,7 +31,7 @@ module Ebay # :nodoc:
       boolean_node :include_prefilled_item_information, 'IncludePrefilledItemInformation', 'true', 'false', :optional => true
       boolean_node :use_stock_photo_url_as_gallery, 'UseStockPhotoURLAsGallery', 'true', 'false', :optional => true
       text_node :stock_photo_url, 'StockPhotoURL', :optional => true
-      text_node :copyright, 'Copyright', :optional => true
+      value_array_node :copyrights, 'Copyright', :default_value => []
       text_node :product_reference_id, 'ProductReferenceID', :optional => true
       text_node :details_url, 'DetailsURL', :optional => true
       text_node :product_details_url, 'ProductDetailsURL', :optional => true

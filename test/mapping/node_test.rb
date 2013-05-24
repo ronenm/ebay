@@ -1,5 +1,5 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require File.dirname(__FILE__) + '/../../lib/ebay/schema/mapper'
+require 'test_helper'
+require 'ebay/schema/mapper'
 
 class NodeTest < Test::Unit::TestCase
   include Ebay::Schema
@@ -71,7 +71,9 @@ END
         @timestamp.to_time
       end
 END
-    assert_equal desired, input.collect{|l| "#{' ' * 6}#{l}"}.join
+  
+    # I don't see the point in this test case
+    assert_equal desired, input.lines.collect { |l| "#{' ' * 6}#{l}" }.join
   end
 
   def test_optional_node

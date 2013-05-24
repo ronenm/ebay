@@ -47,11 +47,9 @@ module Ebay
           puts "Generating simple type class for #{type.name.name}"
           RubyClassGenerator.new(type, @simple_types, @complex_types, @xml)
         end
-       
-        
+              
         write_requires_files(complex_classes)
         write_class_files(complex_classes) 
-
         write_class_files(simple_classes) 
         write_requires_file('types', simple_classes)
 
@@ -68,10 +66,9 @@ module Ebay
       def write_requires_files(classes)
         requests = classes.select{|c| c.derived_request? }
         responses = classes.select{|c| c.derived_response? }
-        types = classes.select{|c| c.type?}
       
         write_requires_file('requests', requests, true) 
-        write_requires_file('responses', requests, true)
+        write_requires_file('responses', responses, true)
         
         write_method_calls(requests)
       end
@@ -112,6 +109,8 @@ module Ebay
       end
       
       def write_class(klass)
+        puts "Writing class #{klass.name}"
+
         File.open(generate_filename(klass.name, klass.module_name, klass.type? && !klass.abstract?), "w") do |file|
           file.puts klass.to_s
           @unused_files.concat(klass.ignored_classes.collect{|c| generate_filename(c, 'types', true)})
@@ -126,7 +125,8 @@ module Ebay
       end
 
       def remove_unused_files
-        @unused_files.uniq!.each do |file|
+        @unused_files.uniq!
+        @unused_files.each do |file|
           if File.exists?(file)
             puts "Removing #{file}"
             File.delete(file)

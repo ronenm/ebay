@@ -1,7 +1,7 @@
 require 'ebay/types/address'
 require 'ebay/types/buyer'
 require 'ebay/types/seller'
-require 'ebay/types/charity_id'
+require 'ebay/types/charity_affiliations'
 require 'ebay/types/bidding_summary'
 
 module Ebay # :nodoc:
@@ -30,13 +30,13 @@ module Ebay # :nodoc:
     #  object_node :buyer_info, 'BuyerInfo', :class => Buyer, :optional => true
     #  object_node :seller_info, 'SellerInfo', :class => Seller, :optional => true
     #  text_node :business_role, 'BusinessRole', :optional => true
-    #  array_node :charity_affiliations, 'CharityAffiliations', 'CharityID', :class => CharityID, :default_value => []
+    #  object_node :charity_affiliations, 'CharityAffiliations', :class => CharityAffiliations, :optional => true
     #  text_node :paypal_account_level, 'PayPalAccountLevel', :optional => true
     #  text_node :paypal_account_type, 'PayPalAccountType', :optional => true
     #  text_node :paypal_account_status, 'PayPalAccountStatus', :optional => true
     #  value_array_node :user_subscriptions, 'UserSubscription', :default_value => []
     #  boolean_node :site_verified, 'SiteVerified', 'true', 'false', :optional => true
-    #  text_node :skype_id, 'SkypeID', :optional => true
+    #  value_array_node :skype_ids, 'SkypeID', :default_value => []
     #  boolean_node :ebay_wiki_read_only, 'eBayWikiReadOnly', 'true', 'false', :optional => true
     #  numeric_node :tuv_level, 'TUVLevel', :optional => true
     #  text_node :vatid, 'VATID', :optional => true
@@ -76,13 +76,13 @@ module Ebay # :nodoc:
       object_node :buyer_info, 'BuyerInfo', :class => Buyer, :optional => true
       object_node :seller_info, 'SellerInfo', :class => Seller, :optional => true
       text_node :business_role, 'BusinessRole', :optional => true
-      array_node :charity_affiliations, 'CharityAffiliations', 'CharityID', :class => CharityID, :default_value => []
+      object_node :charity_affiliations, 'CharityAffiliations', :class => CharityAffiliations, :optional => true
       text_node :paypal_account_level, 'PayPalAccountLevel', :optional => true
       text_node :paypal_account_type, 'PayPalAccountType', :optional => true
       text_node :paypal_account_status, 'PayPalAccountStatus', :optional => true
       value_array_node :user_subscriptions, 'UserSubscription', :default_value => []
       boolean_node :site_verified, 'SiteVerified', 'true', 'false', :optional => true
-      text_node :skype_id, 'SkypeID', :optional => true
+      value_array_node :skype_ids, 'SkypeID', :default_value => []
       boolean_node :ebay_wiki_read_only, 'eBayWikiReadOnly', 'true', 'false', :optional => true
       numeric_node :tuv_level, 'TUVLevel', :optional => true
       text_node :vatid, 'VATID', :optional => true

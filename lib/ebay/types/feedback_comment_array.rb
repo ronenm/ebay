@@ -2,12 +2,12 @@
 module Ebay # :nodoc:
   module Types # :nodoc:
     # == Attributes
-    #  text_node :stored_comment_text, 'StoredCommentText', :optional => true
+    #  value_array_node :stored_comment_texts, 'StoredCommentText', :default_value => []
     class FeedbackCommentArray
       include XML::Mapping
       include Initializer
       root_element_name 'FeedbackCommentArray'
-      text_node :stored_comment_text, 'StoredCommentText', :optional => true
+      value_array_node :stored_comment_texts, 'StoredCommentText', :default_value => []
     end
   end
 end

@@ -2,14 +2,14 @@
 module Ebay # :nodoc:
   module Types # :nodoc:
     # == Attributes
-    #  numeric_node :maximum_item_count, 'MaximumItemCount', :optional => true
-    #  numeric_node :minimum_feedback_score, 'MinimumFeedbackScore', :optional => true
+    #  value_array_node :maximum_item_counts, 'MaximumItemCount', :default_value => []
+    #  value_array_node :minimum_feedback_scores, 'MinimumFeedbackScore', :default_value => []
     class MaximumItemRequirementsDetails
       include XML::Mapping
       include Initializer
       root_element_name 'MaximumItemRequirementsDetails'
-      numeric_node :maximum_item_count, 'MaximumItemCount', :optional => true
-      numeric_node :minimum_feedback_score, 'MinimumFeedbackScore', :optional => true
+      value_array_node :maximum_item_counts, 'MaximumItemCount', :default_value => []
+      value_array_node :minimum_feedback_scores, 'MinimumFeedbackScore', :default_value => []
     end
   end
 end

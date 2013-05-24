@@ -3,7 +3,7 @@ require 'ebay/types/category_item_specifics'
 module Ebay # :nodoc:
   module Requests # :nodoc:
     # == Attributes
-    #  text_node :category_id, 'CategoryID', :optional => true
+    #  value_array_node :category_ids, 'CategoryID', :default_value => []
     #  time_node :last_update_time, 'LastUpdateTime', :optional => true
     #  numeric_node :max_names, 'MaxNames', :optional => true
     #  numeric_node :max_values_per_name, 'MaxValuesPerName', :optional => true
@@ -16,7 +16,7 @@ module Ebay # :nodoc:
       include XML::Mapping
       include Initializer
       root_element_name 'GetCategorySpecificsRequest'
-      text_node :category_id, 'CategoryID', :optional => true
+      value_array_node :category_ids, 'CategoryID', :default_value => []
       time_node :last_update_time, 'LastUpdateTime', :optional => true
       numeric_node :max_names, 'MaxNames', :optional => true
       numeric_node :max_values_per_name, 'MaxValuesPerName', :optional => true

@@ -59,7 +59,7 @@ module Ebay # :nodoc:
     #  boolean_node :buyer_guarantee_enabled, 'BuyerGuaranteeEnabled', 'true', 'false', :optional => true
     #  text_node :in_escrow_workflow_timeline, 'INEscrowWorkflowTimeline', :optional => true
     #  boolean_node :combined_fixed_price_treatment_enabled, 'CombinedFixedPriceTreatmentEnabled', 'true', 'false', :optional => true
-    #  array_node :gallery_featured_durations, 'GalleryFeaturedDurations', :class => ListingEnhancementDurationReference, :default_value => []
+    #  object_node :gallery_featured_durations, 'GalleryFeaturedDurations', :class => ListingEnhancementDurationReference, :optional => true
     #  boolean_node :paypal_required, 'PayPalRequired', 'true', 'false', :optional => true
     #  text_node :ebay_motors_pro_ad_format_enabled, 'eBayMotorsProAdFormatEnabled', :optional => true
     #  boolean_node :ebay_motors_pro_contact_by_phone_enabled, 'eBayMotorsProContactByPhoneEnabled', 'true', 'false', :optional => true
@@ -101,7 +101,7 @@ module Ebay # :nodoc:
     #  boolean_node :revise_quantity_allowed, 'ReviseQuantityAllowed', 'true', 'false', :optional => true
     #  boolean_node :revise_price_allowed, 'RevisePriceAllowed', 'true', 'false', :optional => true
     #  boolean_node :store_owner_extended_listing_durations_enabled, 'StoreOwnerExtendedListingDurationsEnabled', 'true', 'false', :optional => true
-    #  array_node :store_owner_extended_listing_durations, 'StoreOwnerExtendedListingDurations', :class => StoreOwnerExtendedListingDurations, :default_value => []
+    #  object_node :store_owner_extended_listing_durations, 'StoreOwnerExtendedListingDurations', :class => StoreOwnerExtendedListingDurations, :optional => true
     #  boolean_node :return_policy_enabled, 'ReturnPolicyEnabled', 'true', 'false', :optional => true
     #  boolean_node :handling_time_enabled, 'HandlingTimeEnabled', 'true', 'false', :optional => true
     #  money_node :max_flat_shipping_cost, 'MaxFlatShippingCost', :optional => true
@@ -132,6 +132,7 @@ module Ebay # :nodoc:
     #  boolean_node :seller_provided_title_supported, 'SellerProvidedTitleSupported', 'true', 'false', :optional => true
     #  boolean_node :deposit_supported, 'DepositSupported', 'true', 'false', :optional => true
     #  boolean_node :global_shipping_enabled, 'GlobalShippingEnabled', 'true', 'false', :optional => true
+    #  boolean_node :additional_compatibility_enabled, 'AdditionalCompatibilityEnabled', 'true', 'false', :optional => true
     class SiteDefaults
       include XML::Mapping
       include Initializer
@@ -189,7 +190,7 @@ module Ebay # :nodoc:
       boolean_node :buyer_guarantee_enabled, 'BuyerGuaranteeEnabled', 'true', 'false', :optional => true
       text_node :in_escrow_workflow_timeline, 'INEscrowWorkflowTimeline', :optional => true
       boolean_node :combined_fixed_price_treatment_enabled, 'CombinedFixedPriceTreatmentEnabled', 'true', 'false', :optional => true
-      array_node :gallery_featured_durations, 'GalleryFeaturedDurations', :class => ListingEnhancementDurationReference, :default_value => []
+      object_node :gallery_featured_durations, 'GalleryFeaturedDurations', :class => ListingEnhancementDurationReference, :optional => true
       boolean_node :paypal_required, 'PayPalRequired', 'true', 'false', :optional => true
       text_node :ebay_motors_pro_ad_format_enabled, 'eBayMotorsProAdFormatEnabled', :optional => true
       boolean_node :ebay_motors_pro_contact_by_phone_enabled, 'eBayMotorsProContactByPhoneEnabled', 'true', 'false', :optional => true
@@ -231,7 +232,7 @@ module Ebay # :nodoc:
       boolean_node :revise_quantity_allowed, 'ReviseQuantityAllowed', 'true', 'false', :optional => true
       boolean_node :revise_price_allowed, 'RevisePriceAllowed', 'true', 'false', :optional => true
       boolean_node :store_owner_extended_listing_durations_enabled, 'StoreOwnerExtendedListingDurationsEnabled', 'true', 'false', :optional => true
-      array_node :store_owner_extended_listing_durations, 'StoreOwnerExtendedListingDurations', :class => StoreOwnerExtendedListingDurations, :default_value => []
+      object_node :store_owner_extended_listing_durations, 'StoreOwnerExtendedListingDurations', :class => StoreOwnerExtendedListingDurations, :optional => true
       boolean_node :return_policy_enabled, 'ReturnPolicyEnabled', 'true', 'false', :optional => true
       boolean_node :handling_time_enabled, 'HandlingTimeEnabled', 'true', 'false', :optional => true
       money_node :max_flat_shipping_cost, 'MaxFlatShippingCost', :optional => true
@@ -262,6 +263,7 @@ module Ebay # :nodoc:
       boolean_node :seller_provided_title_supported, 'SellerProvidedTitleSupported', 'true', 'false', :optional => true
       boolean_node :deposit_supported, 'DepositSupported', 'true', 'false', :optional => true
       boolean_node :global_shipping_enabled, 'GlobalShippingEnabled', 'true', 'false', :optional => true
+      boolean_node :additional_compatibility_enabled, 'AdditionalCompatibilityEnabled', 'true', 'false', :optional => true
     end
   end
 end

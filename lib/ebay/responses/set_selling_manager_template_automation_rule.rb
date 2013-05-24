@@ -1,7 +1,7 @@
 require 'ebay/types/selling_manager_auto_list'
 require 'ebay/types/selling_manager_auto_relist'
 require 'ebay/types/selling_manager_auto_second_chance_offer'
-require 'ebay/types/fee'
+require 'ebay/types/fees'
 
 module Ebay # :nodoc:
   module Responses # :nodoc:
@@ -9,7 +9,7 @@ module Ebay # :nodoc:
     #  object_node :automated_listing_rule, 'AutomatedListingRule', :class => SellingManagerAutoList, :optional => true
     #  object_node :automated_relisting_rule, 'AutomatedRelistingRule', :class => SellingManagerAutoRelist, :optional => true
     #  object_node :automated_second_chance_offer_rule, 'AutomatedSecondChanceOfferRule', :class => SellingManagerAutoSecondChanceOffer, :optional => true
-    #  array_node :fees, 'Fees', 'Fee', :class => Fee, :default_value => []
+    #  object_node :fees, 'Fees', :class => Fees, :optional => true
     class SetSellingManagerTemplateAutomationRule < Abstract
       include XML::Mapping
       include Initializer
@@ -17,7 +17,7 @@ module Ebay # :nodoc:
       object_node :automated_listing_rule, 'AutomatedListingRule', :class => SellingManagerAutoList, :optional => true
       object_node :automated_relisting_rule, 'AutomatedRelistingRule', :class => SellingManagerAutoRelist, :optional => true
       object_node :automated_second_chance_offer_rule, 'AutomatedSecondChanceOfferRule', :class => SellingManagerAutoSecondChanceOffer, :optional => true
-      array_node :fees, 'Fees', 'Fee', :class => Fee, :default_value => []
+      object_node :fees, 'Fees', :class => Fees, :optional => true
     end
   end
 end

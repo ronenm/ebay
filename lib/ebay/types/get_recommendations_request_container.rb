@@ -8,7 +8,7 @@ module Ebay # :nodoc:
     #  value_array_node :recommendation_engines, 'RecommendationEngine', :default_value => []
     #  text_node :query, 'Query', :optional => true
     #  text_node :correlation_id, 'CorrelationID', :optional => true
-    #  text_node :deleted_field, 'DeletedField', :optional => true
+    #  value_array_node :deleted_fields, 'DeletedField', :default_value => []
     #  boolean_node :exclude_relationships, 'ExcludeRelationships', 'true', 'false', :optional => true
     #  boolean_node :include_confidence, 'IncludeConfidence', 'true', 'false', :optional => true
     class GetRecommendationsRequestContainer
@@ -20,7 +20,7 @@ module Ebay # :nodoc:
       value_array_node :recommendation_engines, 'RecommendationEngine', :default_value => []
       text_node :query, 'Query', :optional => true
       text_node :correlation_id, 'CorrelationID', :optional => true
-      text_node :deleted_field, 'DeletedField', :optional => true
+      value_array_node :deleted_fields, 'DeletedField', :default_value => []
       boolean_node :exclude_relationships, 'ExcludeRelationships', 'true', 'false', :optional => true
       boolean_node :include_confidence, 'IncludeConfidence', 'true', 'false', :optional => true
     end

@@ -12,7 +12,7 @@ module Ebay #:nodoc:
       attributes.stringify_keys!
 
       attributes.each do |k, v|
-        send(k + "=", v)
+        __send__(k + "=", v)
       end
     end
   end

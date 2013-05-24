@@ -1,21 +1,24 @@
+require 'active_support/core_ext/class'
+
 module Ebay
   module Schema
     class Node
       include Inflections
-      class_inheritable_accessor :override_type
+
+      class_attribute :override_type
 
       attr_accessor :name, :min, :max
       def initialize(name, attributes = {})
         @name = name
         @type = attributes[:type]
-        @min = attributes[:min] || "1"
-        @max = attributes[:max] || "1"
+        @min = attributes[:min]
+        @max = attributes[:max]
         @field = attributes[:field]
         @child = attributes[:child]
       end
 
       def optional?
-        @min == "0"
+        @min == '0' || @min == 0
       end
 
       def accessor_name
@@ -73,7 +76,7 @@ end
     class BooleanNode < Node
       def to_s
         result = "#{declaration}, '#{@name}', 'true', 'false'"
-        result << ', :optional => true' if @min == '0'
+        result << ', :optional => true' if optional?
         result
       end
     end
@@ -99,6 +102,13 @@ end
 			end
     end
 
+    class BuiltinTypeArrayNode < Node
+      def to_s
+        result = "#{declaration.pluralize}, '#{@name}', "
+        result << ":class => '#{@type}', :default_value => []"
+      end
+    end
+
     class ArrayNode < Node
       def class_name
         clean_class_name(@type)
@@ -114,7 +124,7 @@ end
     class MoneyNode < Node
       def to_s
         result = "#{declaration}, '#{@name}'"
-        result << ', :optional => true' if @min == '0'
+        result << ', :optional => true' if optional?
         result
       end
     end
@@ -126,7 +136,7 @@ end
 
       def to_s
         result = "#{declaration}, '#{@name}', :class => #{class_name}"
-        result << ', :optional => true' if @min == '0'
+        result << ', :optional => true' if optional?
         result
       end
     end
@@ -138,7 +148,7 @@ end
 
       def to_s
         result = "#{declaration}, '#{@name}', :class => #{class_name}"
-        result << ', :optional => true' if @min == '0'
+        result << ', :optional => true' if optional?
         if @name == 'Type'
           result += <<-ENDMETHOD
 

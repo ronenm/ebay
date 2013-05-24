@@ -2,12 +2,12 @@
 module Ebay # :nodoc:
   module Types # :nodoc:
     # == Attributes
-    #  numeric_node :count, 'Count', :optional => true
+    #  value_array_node :counts, 'Count', :default_value => []
     class MaximumUnpaidItemStrikesCountDetails
       include XML::Mapping
       include Initializer
       root_element_name 'MaximumUnpaidItemStrikesCountDetails'
-      numeric_node :count, 'Count', :optional => true
+      value_array_node :counts, 'Count', :default_value => []
     end
   end
 end

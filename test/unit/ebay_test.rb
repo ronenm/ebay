@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
 class EbayTest < Test::Unit::TestCase
   include Ebay
@@ -23,7 +23,7 @@ class EbayTest < Test::Unit::TestCase
                'Accept-Encoding' => 'gzip'
 	           }
     ebay = Api.new
-	  assert_equal header, ebay.send(:build_headers, 'GeteBayOfficialTime')
+	  assert_equal header, ebay.__send__(:build_headers, 'GeteBayOfficialTime')
 	end
 	
 	def test_override_site_id

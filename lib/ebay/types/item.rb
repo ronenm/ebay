@@ -1,6 +1,6 @@
-require 'ebay/types/attribute_set'
-require 'ebay/types/attribute'
-require 'ebay/types/lookup_attribute'
+require 'ebay/types/attribute_set_array'
+require 'ebay/types/attribute_array'
+require 'ebay/types/lookup_attribute_array'
 require 'ebay/types/payment_details'
 require 'ebay/types/bidding_details'
 require 'ebay/types/charity'
@@ -23,7 +23,7 @@ require 'ebay/types/picture_details'
 require 'ebay/types/listing_checkout_redirect_preference'
 require 'ebay/types/address'
 require 'ebay/types/extended_contact_details'
-require 'ebay/types/name_value_list'
+require 'ebay/types/name_value_list_array'
 require 'ebay/types/buyer_protection_details'
 require 'ebay/types/item_policy_violation'
 require 'ebay/types/business_seller_details'
@@ -42,9 +42,9 @@ module Ebay # :nodoc:
   module Types # :nodoc:
     # == Attributes
     #  text_node :application_data, 'ApplicationData', :optional => true
-    #  array_node :attribute_sets, 'AttributeSetArray', 'AttributeSet', :class => AttributeSet, :default_value => []
-    #  array_node :attributes, 'AttributeArray', 'Attribute', :class => Attribute, :default_value => []
-    #  array_node :lookup_attributes, 'LookupAttributeArray', 'LookupAttribute', :class => LookupAttribute, :default_value => []
+    #  object_node :attribute_sets, 'AttributeSetArray', :class => AttributeSetArray, :optional => true
+    #  object_node :attributes, 'AttributeArray', :class => AttributeArray, :optional => true
+    #  object_node :lookup_attributes, 'LookupAttributeArray', :class => LookupAttributeArray, :optional => true
     #  boolean_node :auto_pay, 'AutoPay', 'true', 'false', :optional => true
     #  object_node :payment_details, 'PaymentDetails', :class => PaymentDetails, :optional => true
     #  object_node :bidding_details, 'BiddingDetails', :class => BiddingDetails, :optional => true
@@ -89,7 +89,7 @@ module Ebay # :nodoc:
     #  object_node :seller, 'Seller', :class => User, :optional => true
     #  object_node :selling_status, 'SellingStatus', :class => SellingStatus, :optional => true
     #  object_node :shipping_details, 'ShippingDetails', :class => ShippingDetails, :optional => true
-    #  text_node :ship_to_locations, 'ShipToLocations', :optional => true
+    #  value_array_node :ship_to_locations, 'ShipToLocations', :default_value => []
     #  text_node :site, 'Site', :optional => true
     #  money_node :start_price, 'StartPrice', :optional => true
     #  object_node :storefront, 'Storefront', :class => Storefront, :optional => true
@@ -135,7 +135,7 @@ module Ebay # :nodoc:
     #  object_node :extended_seller_contact_details, 'ExtendedSellerContactDetails', :class => ExtendedContactDetails, :optional => true
     #  numeric_node :lead_count, 'LeadCount', :optional => true
     #  numeric_node :new_lead_count, 'NewLeadCount', :optional => true
-    #  array_node :item_specifics, 'ItemSpecifics', 'NameValueList', :class => NameValueList, :default_value => []
+    #  object_node :item_specifics, 'ItemSpecifics', :class => NameValueListArray, :optional => true
     #  text_node :group_category_id, 'GroupCategoryID', :optional => true
     #  money_node :classified_ad_pay_per_lead_fee, 'ClassifiedAdPayPerLeadFee', :optional => true
     #  boolean_node :bid_group_item, 'BidGroupItem', 'true', 'false', :optional => true
@@ -145,7 +145,7 @@ module Ebay # :nodoc:
     #  boolean_node :update_seller_info, 'UpdateSellerInfo', 'true', 'false', :optional => true
     #  boolean_node :update_return_policy, 'UpdateReturnPolicy', 'true', 'false', :optional => true
     #  object_node :item_policy_violation, 'ItemPolicyViolation', :class => ItemPolicyViolation, :optional => true
-    #  text_node :cross_border_trade, 'CrossBorderTrade', :optional => true
+    #  value_array_node :cross_border_trades, 'CrossBorderTrade', :default_value => []
     #  object_node :business_seller_details, 'BusinessSellerDetails', :class => BusinessSellerDetails, :optional => true
     #  money_node :buyer_guarantee_price, 'BuyerGuaranteePrice', :optional => true
     #  object_node :buyer_requirement_details, 'BuyerRequirementDetails', :class => BuyerRequirementDetails, :optional => true
@@ -181,14 +181,18 @@ module Ebay # :nodoc:
     #  object_node :unit_info, 'UnitInfo', :class => UnitInfo, :optional => true
     #  numeric_node :relist_parent_id, 'RelistParentID', :optional => true
     #  text_node :condition_definition, 'ConditionDefinition', :optional => true
+    #  boolean_node :hide_from_search, 'HideFromSearch', 'true', 'false', :optional => true
+    #  text_node :reason_hide_from_search, 'ReasonHideFromSearch', :optional => true
+    #  boolean_node :include_recommendations, 'IncludeRecommendations', 'true', 'false', :optional => true
+    #  boolean_node :out_of_stock_control, 'OutOfStockControl', 'true', 'false', :optional => true
     class Item
       include XML::Mapping
       include Initializer
       root_element_name 'Item'
       text_node :application_data, 'ApplicationData', :optional => true
-      array_node :attribute_sets, 'AttributeSetArray', 'AttributeSet', :class => AttributeSet, :default_value => []
-      array_node :attributes, 'AttributeArray', 'Attribute', :class => Attribute, :default_value => []
-      array_node :lookup_attributes, 'LookupAttributeArray', 'LookupAttribute', :class => LookupAttribute, :default_value => []
+      object_node :attribute_sets, 'AttributeSetArray', :class => AttributeSetArray, :optional => true
+      object_node :attributes, 'AttributeArray', :class => AttributeArray, :optional => true
+      object_node :lookup_attributes, 'LookupAttributeArray', :class => LookupAttributeArray, :optional => true
       boolean_node :auto_pay, 'AutoPay', 'true', 'false', :optional => true
       object_node :payment_details, 'PaymentDetails', :class => PaymentDetails, :optional => true
       object_node :bidding_details, 'BiddingDetails', :class => BiddingDetails, :optional => true
@@ -233,7 +237,7 @@ module Ebay # :nodoc:
       object_node :seller, 'Seller', :class => User, :optional => true
       object_node :selling_status, 'SellingStatus', :class => SellingStatus, :optional => true
       object_node :shipping_details, 'ShippingDetails', :class => ShippingDetails, :optional => true
-      text_node :ship_to_locations, 'ShipToLocations', :optional => true
+      value_array_node :ship_to_locations, 'ShipToLocations', :default_value => []
       text_node :site, 'Site', :optional => true
       money_node :start_price, 'StartPrice', :optional => true
       object_node :storefront, 'Storefront', :class => Storefront, :optional => true
@@ -279,7 +283,7 @@ module Ebay # :nodoc:
       object_node :extended_seller_contact_details, 'ExtendedSellerContactDetails', :class => ExtendedContactDetails, :optional => true
       numeric_node :lead_count, 'LeadCount', :optional => true
       numeric_node :new_lead_count, 'NewLeadCount', :optional => true
-      array_node :item_specifics, 'ItemSpecifics', 'NameValueList', :class => NameValueList, :default_value => []
+      object_node :item_specifics, 'ItemSpecifics', :class => NameValueListArray, :optional => true
       text_node :group_category_id, 'GroupCategoryID', :optional => true
       money_node :classified_ad_pay_per_lead_fee, 'ClassifiedAdPayPerLeadFee', :optional => true
       boolean_node :bid_group_item, 'BidGroupItem', 'true', 'false', :optional => true
@@ -289,7 +293,7 @@ module Ebay # :nodoc:
       boolean_node :update_seller_info, 'UpdateSellerInfo', 'true', 'false', :optional => true
       boolean_node :update_return_policy, 'UpdateReturnPolicy', 'true', 'false', :optional => true
       object_node :item_policy_violation, 'ItemPolicyViolation', :class => ItemPolicyViolation, :optional => true
-      text_node :cross_border_trade, 'CrossBorderTrade', :optional => true
+      value_array_node :cross_border_trades, 'CrossBorderTrade', :default_value => []
       object_node :business_seller_details, 'BusinessSellerDetails', :class => BusinessSellerDetails, :optional => true
       money_node :buyer_guarantee_price, 'BuyerGuaranteePrice', :optional => true
       object_node :buyer_requirement_details, 'BuyerRequirementDetails', :class => BuyerRequirementDetails, :optional => true
@@ -325,6 +329,10 @@ module Ebay # :nodoc:
       object_node :unit_info, 'UnitInfo', :class => UnitInfo, :optional => true
       numeric_node :relist_parent_id, 'RelistParentID', :optional => true
       text_node :condition_definition, 'ConditionDefinition', :optional => true
+      boolean_node :hide_from_search, 'HideFromSearch', 'true', 'false', :optional => true
+      text_node :reason_hide_from_search, 'ReasonHideFromSearch', :optional => true
+      boolean_node :include_recommendations, 'IncludeRecommendations', 'true', 'false', :optional => true
+      boolean_node :out_of_stock_control, 'OutOfStockControl', 'true', 'false', :optional => true
     end
   end
 end

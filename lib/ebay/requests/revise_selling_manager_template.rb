@@ -7,7 +7,7 @@ module Ebay # :nodoc:
     #  numeric_node :product_id, 'ProductID', :optional => true
     #  text_node :sale_template_name, 'SaleTemplateName', :optional => true
     #  object_node :item, 'Item', :class => Item, :optional => true
-    #  text_node :deleted_field, 'DeletedField', :optional => true
+    #  value_array_node :deleted_fields, 'DeletedField', :default_value => []
     #  boolean_node :verify_only, 'VerifyOnly', 'true', 'false', :optional => true
     class ReviseSellingManagerTemplate < Abstract
       include XML::Mapping
@@ -17,7 +17,7 @@ module Ebay # :nodoc:
       numeric_node :product_id, 'ProductID', :optional => true
       text_node :sale_template_name, 'SaleTemplateName', :optional => true
       object_node :item, 'Item', :class => Item, :optional => true
-      text_node :deleted_field, 'DeletedField', :optional => true
+      value_array_node :deleted_fields, 'DeletedField', :default_value => []
       boolean_node :verify_only, 'VerifyOnly', 'true', 'false', :optional => true
     end
   end

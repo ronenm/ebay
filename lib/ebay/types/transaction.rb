@@ -8,7 +8,7 @@ require 'ebay/types/shipping_service_options'
 require 'ebay/types/feedback_info'
 require 'ebay/types/order'
 require 'ebay/types/listing_checkout_redirect_preference'
-require 'ebay/types/refund'
+require 'ebay/types/refund_array'
 require 'ebay/types/variation'
 require 'ebay/types/taxes'
 require 'ebay/types/payment_hold_detail'
@@ -50,7 +50,7 @@ module Ebay # :nodoc:
     #  object_node :containing_order, 'ContainingOrder', :class => Order, :optional => true
     #  money_node :final_value_fee, 'FinalValueFee', :optional => true
     #  object_node :listing_checkout_redirect_preference, 'ListingCheckoutRedirectPreference', :class => ListingCheckoutRedirectPreference, :optional => true
-    #  array_node :refunds, 'RefundArray', 'Refund', :class => Refund, :default_value => []
+    #  object_node :refunds, 'RefundArray', :class => RefundArray, :optional => true
     #  text_node :transaction_site_id, 'TransactionSiteID', :optional => true
     #  text_node :platform, 'Platform', :optional => true
     #  text_node :cart_id, 'CartID', :optional => true
@@ -60,6 +60,7 @@ module Ebay # :nodoc:
     #  money_node :buyer_guarantee_price, 'BuyerGuaranteePrice', :optional => true
     #  object_node :variation, 'Variation', :class => Variation, :optional => true
     #  text_node :buyer_checkout_message, 'BuyerCheckoutMessage', :optional => true
+    #  money_node :total_transaction_price, 'TotalTransactionPrice', :optional => true
     #  object_node :taxes, 'Taxes', :class => Taxes, :optional => true
     #  boolean_node :bundle_purchase, 'BundlePurchase', 'true', 'false', :optional => true
     #  money_node :actual_shipping_cost, 'ActualShippingCost', :optional => true
@@ -110,7 +111,7 @@ module Ebay # :nodoc:
       object_node :containing_order, 'ContainingOrder', :class => Order, :optional => true
       money_node :final_value_fee, 'FinalValueFee', :optional => true
       object_node :listing_checkout_redirect_preference, 'ListingCheckoutRedirectPreference', :class => ListingCheckoutRedirectPreference, :optional => true
-      array_node :refunds, 'RefundArray', 'Refund', :class => Refund, :default_value => []
+      object_node :refunds, 'RefundArray', :class => RefundArray, :optional => true
       text_node :transaction_site_id, 'TransactionSiteID', :optional => true
       text_node :platform, 'Platform', :optional => true
       text_node :cart_id, 'CartID', :optional => true
@@ -120,6 +121,7 @@ module Ebay # :nodoc:
       money_node :buyer_guarantee_price, 'BuyerGuaranteePrice', :optional => true
       object_node :variation, 'Variation', :class => Variation, :optional => true
       text_node :buyer_checkout_message, 'BuyerCheckoutMessage', :optional => true
+      money_node :total_transaction_price, 'TotalTransactionPrice', :optional => true
       object_node :taxes, 'Taxes', :class => Taxes, :optional => true
       boolean_node :bundle_purchase, 'BundlePurchase', 'true', 'false', :optional => true
       money_node :actual_shipping_cost, 'ActualShippingCost', :optional => true

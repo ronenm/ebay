@@ -9,7 +9,7 @@ def type
   @type
 end
 
-    #  text_node :alternate_value, 'AlternateValue', :optional => true
+    #  value_array_node :alternate_values, 'AlternateValue', :default_value => []
     class ExternalProductID
       include XML::Mapping
       include Initializer
@@ -21,7 +21,7 @@ def type
   @type
 end
 
-      text_node :alternate_value, 'AlternateValue', :optional => true
+      value_array_node :alternate_values, 'AlternateValue', :default_value => []
     end
   end
 end
