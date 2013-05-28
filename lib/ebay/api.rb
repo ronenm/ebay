@@ -41,6 +41,12 @@ module Ebay #:nodoc:
     cattr_accessor :use_sandbox, :sandbox_url, :production_url, :site_id
     cattr_accessor :dev_id, :app_id, :cert, :auth_token, :runame
     cattr_accessor :username, :password
+
+    class << self
+      alias_method :ru_name, :runame
+      alias_method :ru_name=, :runame=
+    end
+
     attr_reader :auth_token, :site_id
 
     self.sandbox_url = 'https://api.sandbox.ebay.com/ws/api.dll'
@@ -131,12 +137,15 @@ module Ebay #:nodoc:
     end
 
     def invoke(request, format)
-      response = connection.post( service_uri.path,
-                                  build_body(request),
-                                  build_headers(request.call_name)
-                                )
+      request_body = build_body(request)
+      request_headers = build_headers(request.call_name)
+      Rails.logger.info "Request sent:\n - #{request_headers.inspect}\n - body #{request_body}"
 
-      parse decompress(response), format
+      response = connection.post(service_uri.path, request_body, request_headers)
+      decompressed_response = decompress(response)
+
+      Rails.logger.info "Response received: #{decompressed_response}"
+      parse(decompressed_response, format)
     end
 
     def build_headers(call_name)
