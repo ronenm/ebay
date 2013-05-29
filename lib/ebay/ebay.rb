@@ -33,3 +33,10 @@ end
 
 require 'ebay/api'
 require 'ebay/notification'
+
+Ebay::Requests::Abstract.class_eval do
+  # set the RequesterCredentials on all requests
+  def requester_credentials
+    XMLRequesterCredentials.new(:ebay_auth_token => auth_token)
+  end
+end
