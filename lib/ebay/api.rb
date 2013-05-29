@@ -41,6 +41,7 @@ module Ebay #:nodoc:
     cattr_accessor :use_sandbox, :sandbox_url, :production_url, :site_id
     cattr_accessor :dev_id, :app_id, :cert, :auth_token, :runame
     cattr_accessor :username, :password
+    cattr_accessor :logger
 
     class << self
       alias_method :ru_name, :runame
@@ -139,12 +140,12 @@ module Ebay #:nodoc:
     def invoke(request, format)
       request_body = build_body(request)
       request_headers = build_headers(request.call_name)
-      Rails.logger.info "Request sent:\n - #{request_headers.inspect}\n - body #{request_body}"
+      logger.info "Request sent:\n - #{request_headers.inspect}\n - body #{request_body}" if logger
 
       response = connection.post(service_uri.path, request_body, request_headers)
       decompressed_response = decompress(response)
 
-      Rails.logger.info "Response received: #{decompressed_response}"
+      logger.info "Response received: #{decompressed_response}" if logger
       parse(decompressed_response, format)
     end
 

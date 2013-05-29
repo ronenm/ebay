@@ -1,4 +1,5 @@
 require 'active_support/core_ext/class'
+require "active_support/inflector"
 
 module Ebay
   module Schema

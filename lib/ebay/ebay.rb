@@ -29,14 +29,14 @@ if File.exists?(File.dirname(__FILE__) + '/requests.rb') && File.exists?(File.di
   require 'ebay/response/base'
   require 'ebay/requests'
   require 'ebay/responses'
+
+  Ebay::Requests::Abstract.class_eval do
+    # set the RequesterCredentials on all requests
+    def requester_credentials
+      Ebay::Types::XMLRequesterCredentials.new(:ebay_auth_token => auth_token)
+    end
+  end
 end
 
 require 'ebay/api'
 require 'ebay/notification'
-
-Ebay::Requests::Abstract.class_eval do
-  # set the RequesterCredentials on all requests
-  def requester_credentials
-    XMLRequesterCredentials.new(:ebay_auth_token => auth_token)
-  end
-end
