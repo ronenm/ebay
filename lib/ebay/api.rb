@@ -124,6 +124,11 @@ module Ebay #:nodoc:
       @site_id = options[:site_id] || self.class.site_id
     end
 
+    # Returns the URL used to sign-in to eBay to fetch a user token
+    def sign_in_url(session_id)
+      "https://signin.#{"sandbox." if self.class.using_sandbox?}ebay.com/ws/eBayISAPI.dll?SignIn&RuName=#{self.class.ru_name}&SessID=#{session_id}"
+    end
+
     private
     def commit(request_class, params)
       format = params.delete(:format) || @format
@@ -140,7 +145,7 @@ module Ebay #:nodoc:
     def invoke(request, format)
       request_body = build_body(request)
       request_headers = build_headers(request.call_name)
-      logger.info "Request sent:\n - #{request_headers.inspect}\n - body #{request_body}" if logger
+      logger.info "Request sent: #{request_body}" if logger
 
       response = connection.post(service_uri.path, request_body, request_headers)
       decompressed_response = decompress(response)
