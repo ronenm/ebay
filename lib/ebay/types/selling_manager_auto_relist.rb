@@ -4,10 +4,6 @@ module Ebay # :nodoc:
   module Types # :nodoc:
     # == Attributes
     #  text_node :type, 'Type', :optional => true
-def type
-  @type
-end
-
     #  text_node :relist_condition, 'RelistCondition', :optional => true
     #  numeric_node :relist_after_days, 'RelistAfterDays', :optional => true
     #  numeric_node :relist_after_hours, 'RelistAfterHours', :optional => true

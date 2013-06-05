@@ -6,7 +6,7 @@ module Ebay # :nodoc:
   module <%= module_name %> # :nodoc:
     # == Attributes
 <% for node in nodes -%>
-    #  <%= node.to_s %>
+    #  <%= node && node.comment_line || '' %>
 <% end -%>
     class <%= class_definition %>
       include XML::Mapping

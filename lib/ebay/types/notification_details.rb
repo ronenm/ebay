@@ -6,10 +6,6 @@ module Ebay # :nodoc:
     #  text_node :reference_id, 'ReferenceID', :optional => true
     #  time_node :expiration_time, 'ExpirationTime', :optional => true
     #  text_node :type, 'Type', :optional => true
-def type
-  @type
-end
-
     #  numeric_node :retries, 'Retries', :optional => true
     #  text_node :delivery_status, 'DeliveryStatus', :optional => true
     #  time_node :next_retry_time, 'NextRetryTime', :optional => true

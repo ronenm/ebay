@@ -3,10 +3,6 @@ module Ebay # :nodoc:
   module Types # :nodoc:
     # == Attributes
     #  text_node :type, 'Type', :optional => true
-def type
-  @type
-end
-
     #  time_node :time, 'Time', :optional => true
     #  text_node :reason, 'Reason', :optional => true
     class MarkUpMarkDownEvent

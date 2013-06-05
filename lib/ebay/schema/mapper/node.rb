@@ -40,6 +40,12 @@ module Ebay
         "#{xml_mapping_node_type} :#{accessor_name}"
       end
 
+      def comment_line
+        result = to_s
+        newline_index = result.index("\n")
+        newline_index ? result[0...newline_index] : result
+      end
+
       private
       def clean_class_name(name)
         trim_namespace(name.gsub(/Type$/, '')).camelize
@@ -147,7 +153,7 @@ end
         clean_class_name(@type)
       end
 
-      def to_s
+      def to_s 
         result = "#{declaration}, '#{@name}', :class => #{class_name}"
         result << ', :optional => true' if optional?
         if @name == 'Type'

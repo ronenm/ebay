@@ -8,10 +8,6 @@ module Ebay # :nodoc:
     #  text_node :name, 'Name', :optional => true
     #  text_node :template_xml, 'TemplateXML', :optional => true
     #  text_node :type, 'Type', :optional => true
-def type
-  @type
-end
-
     class DescriptionTemplate
       include XML::Mapping
       include Initializer

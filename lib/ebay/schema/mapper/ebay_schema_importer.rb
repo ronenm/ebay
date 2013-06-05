@@ -39,12 +39,10 @@ module Ebay
       def write_classes
         
         complex_classes = @complex_types.collect do |type|
-          puts "Generating class for #{type.name.name}"
           RubyClassGenerator.new(type, @simple_types, @complex_types, @xml)
         end
         
         simple_classes = @code_types.collect do |type|
-          puts "Generating simple type class for #{type.name.name}"
           RubyClassGenerator.new(type, @simple_types, @complex_types, @xml)
         end
               
@@ -109,9 +107,9 @@ module Ebay
       end
       
       def write_class(klass)
-        puts "Writing class #{klass.name}"
-
         File.open(generate_filename(klass.name, klass.module_name, klass.type? && !klass.abstract?), "w") do |file|
+          puts "Writing class #{klass.name} to #{file.path}"
+
           file.puts klass.to_s
           @unused_files.concat(klass.ignored_classes.collect{|c| generate_filename(c, 'types', true)})
         end

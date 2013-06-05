@@ -61,7 +61,7 @@ module Ebay
 
         # class_def.documentation = @documentation
 
-        puts "Rendering class #{class_name}; element_name #{element_name}, module_name #{module_name}, base_class #{base_class}}"
+        # puts "Rendering class #{class_name}; element_name #{element_name}, module_name #{module_name}, base_class #{base_class}}"
         base.render(class_def)
       end
 
@@ -286,7 +286,7 @@ module Ebay
               MoneyNode.new(name, options)
             elsif element_elements.nil?
               ObjectNode.new(name, options)
-            elsif element_elements.size == 1 && element_elements[0].maxoccurs == "unbounded"
+            elsif element_elements.size == 1 && ['unbounded', nil].include?(element_elements[0].maxoccurs)
               # Found a container!
               child = element_elements[0]
 

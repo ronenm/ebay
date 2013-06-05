@@ -1,4 +1,4 @@
-require 'ebay/types/listing_duration_definitions'
+require 'ebay/types/listing_duration_definition'
 require 'ebay/types/shipping_term_required_definition'
 require 'ebay/types/best_offer_enabled_definition'
 require 'ebay/types/dutch_bin_enabled_definition'
@@ -127,7 +127,7 @@ require 'ebay/types/additional_compatibility_enabled_definition'
 module Ebay # :nodoc:
   module Types # :nodoc:
     # == Attributes
-    #  object_node :listing_durations, 'ListingDurations', :class => ListingDurationDefinitions, :optional => true
+    #  array_node :listing_durations, 'ListingDurations', 'ListingDuration', :class => ListingDurationDefinition, :default_value => []
     #  object_node :shipping_terms_required, 'ShippingTermsRequired', :class => ShippingTermRequiredDefinition, :optional => true
     #  object_node :best_offer_enabled, 'BestOfferEnabled', :class => BestOfferEnabledDefinition, :optional => true
     #  object_node :dutch_bin_enabled, 'DutchBINEnabled', :class => DutchBINEnabledDefinition, :optional => true
@@ -258,7 +258,7 @@ module Ebay # :nodoc:
       include XML::Mapping
       include Initializer
       root_element_name 'FeatureDefinitions'
-      object_node :listing_durations, 'ListingDurations', :class => ListingDurationDefinitions, :optional => true
+      array_node :listing_durations, 'ListingDurations', 'ListingDuration', :class => ListingDurationDefinition, :default_value => []
       object_node :shipping_terms_required, 'ShippingTermsRequired', :class => ShippingTermRequiredDefinition, :optional => true
       object_node :best_offer_enabled, 'BestOfferEnabled', :class => BestOfferEnabledDefinition, :optional => true
       object_node :dutch_bin_enabled, 'DutchBINEnabled', :class => DutchBINEnabledDefinition, :optional => true

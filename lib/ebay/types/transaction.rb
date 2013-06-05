@@ -8,7 +8,7 @@ require 'ebay/types/shipping_service_options'
 require 'ebay/types/feedback_info'
 require 'ebay/types/order'
 require 'ebay/types/listing_checkout_redirect_preference'
-require 'ebay/types/refund_array'
+require 'ebay/types/refund'
 require 'ebay/types/variation'
 require 'ebay/types/taxes'
 require 'ebay/types/payment_hold_detail'
@@ -50,7 +50,7 @@ module Ebay # :nodoc:
     #  object_node :containing_order, 'ContainingOrder', :class => Order, :optional => true
     #  money_node :final_value_fee, 'FinalValueFee', :optional => true
     #  object_node :listing_checkout_redirect_preference, 'ListingCheckoutRedirectPreference', :class => ListingCheckoutRedirectPreference, :optional => true
-    #  object_node :refunds, 'RefundArray', :class => RefundArray, :optional => true
+    #  array_node :refunds, 'RefundArray', 'Refund', :class => Refund, :default_value => []
     #  text_node :transaction_site_id, 'TransactionSiteID', :optional => true
     #  text_node :platform, 'Platform', :optional => true
     #  text_node :cart_id, 'CartID', :optional => true
@@ -111,7 +111,7 @@ module Ebay # :nodoc:
       object_node :containing_order, 'ContainingOrder', :class => Order, :optional => true
       money_node :final_value_fee, 'FinalValueFee', :optional => true
       object_node :listing_checkout_redirect_preference, 'ListingCheckoutRedirectPreference', :class => ListingCheckoutRedirectPreference, :optional => true
-      object_node :refunds, 'RefundArray', :class => RefundArray, :optional => true
+      array_node :refunds, 'RefundArray', 'Refund', :class => Refund, :default_value => []
       text_node :transaction_site_id, 'TransactionSiteID', :optional => true
       text_node :platform, 'Platform', :optional => true
       text_node :cart_id, 'CartID', :optional => true
