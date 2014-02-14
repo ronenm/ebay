@@ -1,3 +1,4 @@
+require 'ebay/types/shipping_package_info'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
@@ -14,6 +15,7 @@ module Ebay # :nodoc:
     #  boolean_node :free_shipping, 'FreeShipping', 'true', 'false', :optional => true
     #  boolean_node :local_pickup, 'LocalPickup', 'true', 'false', :optional => true
     #  money_node :import_charge, 'ImportCharge', :optional => true
+    #  array_node :shipping_package_infos, 'ShippingPackageInfo', :class => ShippingPackageInfo, :default_value => []
     class ShippingServiceOptions
       include XML::Mapping
       include Initializer
@@ -30,6 +32,7 @@ module Ebay # :nodoc:
       boolean_node :free_shipping, 'FreeShipping', 'true', 'false', :optional => true
       boolean_node :local_pickup, 'LocalPickup', 'true', 'false', :optional => true
       money_node :import_charge, 'ImportCharge', :optional => true
+      array_node :shipping_package_infos, 'ShippingPackageInfo', :class => ShippingPackageInfo, :default_value => []
     end
   end
 end

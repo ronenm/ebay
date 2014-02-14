@@ -13,6 +13,8 @@ module Ebay # :nodoc:
     #  text_node :seller_message, 'SellerMessage', :optional => true
     #  text_node :best_offer_code_type, 'BestOfferCodeType', :optional => true
     #  text_node :call_status, 'CallStatus', :optional => true
+    #  boolean_node :new_best_offer, 'NewBestOffer', 'true', 'false', :optional => true
+    #  boolean_node :immediate_pay_eligible, 'ImmediatePayEligible', 'true', 'false', :optional => true
     class BestOffer
       include XML::Mapping
       include Initializer
@@ -27,6 +29,8 @@ module Ebay # :nodoc:
       text_node :seller_message, 'SellerMessage', :optional => true
       text_node :best_offer_code_type, 'BestOfferCodeType', :optional => true
       text_node :call_status, 'CallStatus', :optional => true
+      boolean_node :new_best_offer, 'NewBestOffer', 'true', 'false', :optional => true
+      boolean_node :immediate_pay_eligible, 'ImmediatePayEligible', 'true', 'false', :optional => true
     end
   end
 end

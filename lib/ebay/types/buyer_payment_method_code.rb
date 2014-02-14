@@ -35,6 +35,8 @@ module Ebay # :nodoc:
       PayOnPickup = 'PayOnPickup'
       Diners = 'Diners'
       StandardPayment = 'StandardPayment'
+      DirectDebit = 'DirectDebit'
+      CreditCard = 'CreditCard'
     end
   end
 end
