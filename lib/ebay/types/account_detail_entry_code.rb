@@ -275,6 +275,18 @@ module Ebay # :nodoc:
       CreditReturnRefund = 'CreditReturnRefund'
       FeeStoresSubscriptionEarlyTermination = 'FeeStoresSubscriptionEarlyTermination'
       CreditStoresSubscriptionEarlyTermination = 'CreditStoresSubscriptionEarlyTermination'
+      FeeVehicleSubscriptionEarlyTermination = 'FeeVehicleSubscriptionEarlyTermination'
+      CreditVehicleSubscriptionEarlyTermination = 'CreditVehicleSubscriptionEarlyTermination'
+      FeeVehicleSubscription = 'FeeVehicleSubscription'
+      CreditVehicleSubscription = 'CreditVehicleSubscription'
+      FeeAUPostShippingLabel = 'FeeAUPostShippingLabel'
+      CreditAUPostShippingLabel = 'CreditAUPostShippingLabel'
+      FeeAPACFedExShippingLabel = 'FeeAPACFedExShippingLabel'
+      CreditAPACFedExShippingLabel = 'CreditAPACFedExShippingLabel'
+      FeeAPACTNTShippingLabel = 'FeeAPACTNTShippingLabel'
+      CreditAPACTNTShippingLabel = 'CreditAPACTNTShippingLabel'
+      FeeEBPReimbursement = 'FeeEBPReimbursement'
+      CreditEBPReimbursement = 'CreditEBPReimbursement'
     end
   end
 end

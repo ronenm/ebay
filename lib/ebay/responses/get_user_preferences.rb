@@ -32,6 +32,8 @@ module Ebay # :nodoc:
     #  object_node :seller_return_preferences, 'SellerReturnPreferences', :class => SellerReturnPreferences, :optional => true
     #  boolean_node :offer_global_shipping_program_preference, 'OfferGlobalShippingProgramPreference', 'true', 'false', :optional => true
     #  object_node :dispatch_cutoff_time_preference, 'DispatchCutoffTimePreference', :class => DispatchCutoffTimePreferences, :optional => true
+    #  boolean_node :global_shipping_program_listing_preference, 'GlobalShippingProgramListingPreference', 'true', 'false', :optional => true
+    #  boolean_node :override_gsp_service_with_intl_service_preference, 'OverrideGSPServiceWithIntlServicePreference', 'true', 'false', :optional => true
     class GetUserPreferences < Abstract
       include XML::Mapping
       include Initializer
@@ -53,6 +55,8 @@ module Ebay # :nodoc:
       object_node :seller_return_preferences, 'SellerReturnPreferences', :class => SellerReturnPreferences, :optional => true
       boolean_node :offer_global_shipping_program_preference, 'OfferGlobalShippingProgramPreference', 'true', 'false', :optional => true
       object_node :dispatch_cutoff_time_preference, 'DispatchCutoffTimePreference', :class => DispatchCutoffTimePreferences, :optional => true
+      boolean_node :global_shipping_program_listing_preference, 'GlobalShippingProgramListingPreference', 'true', 'false', :optional => true
+      boolean_node :override_gsp_service_with_intl_service_preference, 'OverrideGSPServiceWithIntlServicePreference', 'true', 'false', :optional => true
     end
   end
 end

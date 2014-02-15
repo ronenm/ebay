@@ -34,9 +34,11 @@ require 'ebay/types/item_compatibility_list'
 require 'ebay/types/discount_price_info'
 require 'ebay/types/quantity_info'
 require 'ebay/types/seller_profiles'
+require 'ebay/types/shipping_service_cost_override'
 require 'ebay/types/ship_package_details'
 require 'ebay/types/quantity_restriction_per_buyer_info'
 require 'ebay/types/unit_info'
+require 'ebay/types/pickup_in_store_details'
 
 module Ebay # :nodoc:
   module Types # :nodoc:
@@ -172,6 +174,7 @@ module Ebay # :nodoc:
     #  text_node :vrm_link, 'VRMLink', :optional => true
     #  object_node :quantity_info, 'QuantityInfo', :class => QuantityInfo, :optional => true
     #  object_node :seller_profiles, 'SellerProfiles', :class => SellerProfiles, :optional => true
+    #  array_node :shipping_service_cost_override_lists, 'ShippingServiceCostOverrideList', 'ShippingServiceCostOverride', :class => ShippingServiceCostOverride, :default_value => []
     #  object_node :shipping_package_details, 'ShippingPackageDetails', :class => ShipPackageDetails, :optional => true
     #  boolean_node :top_rated_listing, 'TopRatedListing', 'true', 'false', :optional => true
     #  money_node :floor_price, 'FloorPrice', :optional => true
@@ -185,6 +188,8 @@ module Ebay # :nodoc:
     #  text_node :reason_hide_from_search, 'ReasonHideFromSearch', :optional => true
     #  boolean_node :include_recommendations, 'IncludeRecommendations', 'true', 'false', :optional => true
     #  boolean_node :out_of_stock_control, 'OutOfStockControl', 'true', 'false', :optional => true
+    #  object_node :pickup_in_store_details, 'PickupInStoreDetails', :class => PickupInStoreDetails, :optional => true
+    #  boolean_node :ebay_now_eligible, 'eBayNowEligible', 'true', 'false', :optional => true
     class Item
       include XML::Mapping
       include Initializer
@@ -320,6 +325,7 @@ module Ebay # :nodoc:
       text_node :vrm_link, 'VRMLink', :optional => true
       object_node :quantity_info, 'QuantityInfo', :class => QuantityInfo, :optional => true
       object_node :seller_profiles, 'SellerProfiles', :class => SellerProfiles, :optional => true
+      array_node :shipping_service_cost_override_lists, 'ShippingServiceCostOverrideList', 'ShippingServiceCostOverride', :class => ShippingServiceCostOverride, :default_value => []
       object_node :shipping_package_details, 'ShippingPackageDetails', :class => ShipPackageDetails, :optional => true
       boolean_node :top_rated_listing, 'TopRatedListing', 'true', 'false', :optional => true
       money_node :floor_price, 'FloorPrice', :optional => true
@@ -333,6 +339,8 @@ module Ebay # :nodoc:
       text_node :reason_hide_from_search, 'ReasonHideFromSearch', :optional => true
       boolean_node :include_recommendations, 'IncludeRecommendations', 'true', 'false', :optional => true
       boolean_node :out_of_stock_control, 'OutOfStockControl', 'true', 'false', :optional => true
+      object_node :pickup_in_store_details, 'PickupInStoreDetails', :class => PickupInStoreDetails, :optional => true
+      boolean_node :ebay_now_eligible, 'eBayNowEligible', 'true', 'false', :optional => true
     end
   end
 end

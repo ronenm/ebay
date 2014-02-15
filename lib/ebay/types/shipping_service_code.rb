@@ -9,6 +9,7 @@ module Ebay # :nodoc:
       UPSNextDay = 'UPSNextDay'
       USPSPriority = 'USPSPriority'
       USPSParcel = 'USPSParcel'
+      USPSStandardPost = 'USPSStandardPost'
       USPSMedia = 'USPSMedia'
       USPSFirstClass = 'USPSFirstClass'
       ShippingMethodStandard = 'ShippingMethodStandard'
@@ -196,6 +197,8 @@ module Ebay # :nodoc:
       CAUPSWorldWideExpedited = 'CA_UPSWorldWideExpedited'
       CAPriorityWorldwide = 'CA_PriorityWorldwide'
       CanadaPostExpeditedFlatRateBoxUSA = 'CanadaPostExpeditedFlatRateBoxUSA'
+      CAPostTrackedPacketsUSA = 'CA_PostTrackedPacketsUSA'
+      CAPostTrackedPacketsInternational = 'CA_PostTrackedPacketsInternational'
       CAFreight = 'CA_Freight'
       CHStandardDispatchAPost = 'CH_StandardDispatchAPost'
       CHStandardDispatchBPost = 'CH_StandardDispatchBPost'
@@ -278,6 +281,7 @@ module Ebay # :nodoc:
       DEGLS = 'DE_GLS'
       DEPaketInternational = 'DE_PaketInternational'
       DEDHLPaketInternational = 'DE_DHLPaketInternational'
+      DEDHLPaketIntlExpress = 'DE_DHLPaketIntlExpress'
       DESonstigeInternational = 'DE_SonstigeInternational'
       DEExpressInternational = 'DE_ExpressInternational'
       DEDPBriefInternational = 'DE_DPBriefInternational'
@@ -707,6 +711,9 @@ module Ebay # :nodoc:
       DEDHL2KGPaket = 'DE_DHL2KGPaket'
       InternationalPriorityShipping = 'InternationalPriorityShipping'
       SameDayShipping = 'SameDayShipping'
+      UKRoyalMailNextDay = 'UK_RoyalMailNextDay'
+      UKRoyalMailTracked = 'UK_RoyalMailTracked'
+      EBayNowImmediateDelivery = 'eBayNowImmediateDelivery'
     end
   end
 end
