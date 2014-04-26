@@ -10,8 +10,17 @@ module Ebay #:nodoc:
 
   class RequestError < EbayError #:nodoc:
     attr_reader :errors
+
     def initialize(errors)
       @errors = errors
+    end
+
+    def to_s
+      message = "Ebay Error:"
+      errors.each do |error|
+        message << " #{error.long_message};"
+      end
+      message
     end
   end
 
@@ -39,6 +48,7 @@ module Ebay #:nodoc:
     XmlNs = 'urn:ebay:apis:eBLBaseComponents'
 
     cattr_accessor :use_sandbox, :sandbox_url, :production_url, :site_id
+
     cattr_accessor :dev_id, :app_id, :cert, :auth_token, :runame
     cattr_accessor :username, :password
     cattr_accessor :logger
@@ -48,7 +58,9 @@ module Ebay #:nodoc:
       alias_method :ru_name=, :runame=
     end
 
-    attr_reader :auth_token, :site_id
+    #attr_reader :auth_token, :site_id
+    attr_reader :auth_token, :site_id, :session_id
+
 
     self.sandbox_url = 'https://api.sandbox.ebay.com/ws/api.dll'
     self.production_url = 'https://api.ebay.com/ws/api.dll'
@@ -107,8 +119,14 @@ module Ebay #:nodoc:
       self.class.cert
     end
 
+
     def runame
       self.class.runame
+    end
+
+    def sign_in_url(session_id)
+      "https://signin.#{"sandbox." if self.class.using_sandbox?}ebay.com/ws/eBayISAPI.dll?SignIn&RuName=#{self.class.runame}&SessID=#{session_id}"
+
     end
 
     # With no options, the default is to use the default site_id and the default
@@ -122,11 +140,6 @@ module Ebay #:nodoc:
       @format = options[:format] || :object
       @auth_token = options[:auth_token] || self.class.auth_token
       @site_id = options[:site_id] || self.class.site_id
-    end
-
-    # Returns the URL used to sign-in to eBay to fetch a user token
-    def sign_in_url(session_id)
-      "https://signin.#{"sandbox." if self.class.using_sandbox?}ebay.com/ws/eBayISAPI.dll?SignIn&RuName=#{self.class.ru_name}&SessID=#{session_id}"
     end
 
     private
@@ -143,6 +156,7 @@ module Ebay #:nodoc:
     end
 
     def invoke(request, format)
+
       request_body = build_body(request)
       request_headers = build_headers(request.call_name)
       logger.info "Request sent: #{request_body}" if logger
