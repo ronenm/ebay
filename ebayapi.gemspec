@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency("xml-mapping", ["~> 0.8.1"])
 
-  s.add_development_dependency("activesupport", [">= 2.3.4"])
+  #s.add_development_dependency("activesupport", [">= 2.3.4"])
   #s.add_development_dependency("xml-simple", ["~> 1.0.11"])
   #s.add_development_dependency("libxml-ruby", ["~> 1.1.4"])
 
