@@ -43,6 +43,14 @@ module Ebay
       @event_name ||= parse_event_name
     end
 
+    def recipient_user_id
+      @recipient_user_id ||= parse_recipient_user_id
+    end
+
+    def eias_token
+      @eias_token ||= parse_eias_token
+    end
+
     private
     def dev_id
       Api.dev_id
@@ -86,6 +94,17 @@ module Ebay
       raise InvalidNotificationError, "Notification event name is missing" if event_name_node.nil?
       event_name_node.text
     end
+
+    def parse_recipient_user_id
+      recipient_user_id_node = REXML::XPath.first(document, "//RecipientUserID")
+      recipient_user_id_node && recipient_user_id_node.text
+    end
+
+    def parse_eias_token
+      eias_token_node = REXML::XPath.first(document, "//EIASToken")
+      eias_token_node && eias_token_node.text
+    end
+
 
     def parse_signature
       signature_node = REXML::XPath.first(document, "//ebl:NotificationSignature")
