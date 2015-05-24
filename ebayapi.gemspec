@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = s.name
   s.required_rubygems_version = ">= 1.3.4"
 
-  s.add_dependency("money", ["~> 5.1.0"])
+  s.add_dependency("money", ["~> 6.5.0"])
 
   s.add_development_dependency("rake", ["~> 10.0"])
   s.add_development_dependency("activesupport", [">= 2.3.4"])
